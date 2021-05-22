@@ -25,3 +25,20 @@ DB でアプリケーションの仕様に影響が出てきてしまうので�
     - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.7.6 _bin および binary 照合順序](https://dev.mysql.com/doc/refman/5.6/ja/charset-binary-collations.html)
   - [MySQL: utf8_bin と utf8_general_ci と utf8_unicode_ci - fメモ いまさら館](http://ftsh.hateblo.jp/entry/2016/04/16/100937)
 
+
+## 2021/05/22 Sat
+
+Windows 10 Home へのリモートデスクトップ接続をしたい  
+
+Windows へのリモートデスクトップ接続をしたいなと思って  
+前できたよなと思ったらどうやら Pro エディションじゃないとリモートデスクトップ接続ができないみたい  
+そもそも Home ディションにはリモートデスクトップ接続の設定がない  
+
+はて、と調べてみると [RDPWrap](https://github.com/stascorp/rdpwrap/releases) とういうものがある  
+設定すれば Home エディションでもリモートデスクトップ接続ができるらしい  
+
+明日あたりにでもやってみようかな  
+
+- 参考
+  - [Windows10Homeでリモートデスクトップ出来ない人へ！簡単に接続可能！ | 快晴ブログ](https://kaisei-eigo.com/remote-desktop-home-edition)
+
