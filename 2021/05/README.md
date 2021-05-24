@@ -70,3 +70,53 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 - 参考
   - [【画像つき】Windows10 Homeでもリモートデスクトップを使う方法](https://kaoruya.org/blog/rdpwrap/)
 
+
+## 2021/05/24 Mon
+
+Python の main 関数  
+
+高校面子が Python 学んでる  
+ちょっと話すのに簡単なスクリプトを書いてたりした  
+
+```py
+print('Hello World!')
+```
+
+こんな感じで標準出力ができるのだが、ふと main 関数ってあるの？って気になった  
+Perl でなにか書きたいときは以下のように main ルーチンを用意している  
+
+```pl
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+sub main {
+  &_helloWorld();
+}
+
+sub _helloWorld {
+  print 'Hello World!';
+}
+
+&main();
+
+1;
+```
+
+Python の main 関数で調べてみると以下のようにやるらしい  
+
+```py
+def main():
+    helloWorld()
+
+def helloWorld():
+    print('Hello World!')
+
+if __name__ == "__main__":
+    main()
+```
+
+`if __name__ == "__main__":` はモジュールとしてインポートした際に処理が動かないようにするために必要みたい  
+今日は朝が早かったのでこのへんで  
+
