@@ -120,3 +120,8 @@ if __name__ == "__main__":
 `if __name__ == "__main__":` はモジュールとしてインポートした際に処理が動かないようにするために必要みたい  
 今日は朝が早かったのでこのへんで  
 
+- 参考
+  - [Python Tips: Python で main 関数を定義することのメリット - Life with Python](https://www.lifewithpython.com/2021/01/python-main-function.html)
+  - [pythonのmain関数についてメモ - paloma blog](https://paloma69.hatenablog.com/entry/2018/06/28/005550)
+  - [Pythonのif __name__ == "__main__" とは何ですか？への回答 - Python学習チャンネル by PyQ](https://blog.pyq.jp/entry/Python_kaiketsu_180207)
+
