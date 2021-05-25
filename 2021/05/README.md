@@ -125,3 +125,39 @@ if __name__ == "__main__":
   - [pythonのmain関数についてメモ - paloma blog](https://paloma69.hatenablog.com/entry/2018/06/28/005550)
   - [Pythonのif __name__ == "__main__" とは何ですか？への回答 - Python学習チャンネル by PyQ](https://blog.pyq.jp/entry/Python_kaiketsu_180207)
 
+
+## 2021/05/25 Tue
+
+history には過去が詰まっている ~ $RANDOM, uuidgen ~  
+
+history を見ていた  
+やたらランダムの数値を出力していたり、 UUID を出力していたりしてた  
+
+`echo $RANDOM` でランダムな数値を出力  
+
+```sh
+$ echo $RANDOM
+18482
+
+$ echo $RANDOM
+7361
+
+$ echo $RANDOM
+14770
+```
+
+`uuidgen` で UUID を出力
+
+```sh
+$ uuidgen
+0CD66C07-BFFD-4EBB-9698-D0CA0D485978
+
+$ uuidgen
+686BE74A-B459-4FCC-BD12-60BC3F814627
+
+$ uuidgen
+87A3C807-96B2-4927-AB61-9B7947F287DA
+```
+
+当時はなんで出力していたのかわからないが、ランダムな数値や UUID を活かしたシェルスクリプトを書くのも良いかもね  
+
