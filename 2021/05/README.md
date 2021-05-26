@@ -161,3 +161,55 @@ $ uuidgen
 
 当時はなんで出力していたのかわからないが、ランダムな数値や UUID を活かしたシェルスクリプトを書くのも良いかもね  
 
+
+## 2021/05/26 Wed
+
+MySQL クライアントのパスワード入力を省略したい  
+
+GUI クライアントはあまり使わず、大体 CUI で行っており `mysql-client` にはお世話になっている  
+よく接続で使うコマンドは下記、開発環境などに多い  
+
+```sh
+$ mysql -uyour_user -p -hlocalhost
+Enter password:
+```
+
+`Enter password` が出てパスワードを入力しているが、何回か実行すると入力が大変だったりする  
+`-p` オプションで渡す際に環境変数などで隠すこともできるが......  
+
+```sh
+$ export MYSQL_PASSWORD=your_password
+$ printenv MYSQL_PASSWORD
+your_password
+
+$ mysql -uyour_user -p$MYSQL_PASSWORD -hlocalhost
+```
+
+調べてみると外部ファイルを読み込んで接続できるみたい  
+`--defaults-file` オプションを使用する  
+
+設定ファイルを用意する  
+`/path/to/.develop.my.cnf`  
+```cnf
+[client]
+host=localhost
+user=your_user
+password=your_password
+
+[mysqldump]
+host=localhost
+user=your_user
+password=your_password
+```
+
+でファイルを指定する  
+```sh
+$ mysql --defaults-file=/path/to/.develop.my.cnf
+```
+
+設定ファイルにはいろいろ項目書けるみたい  
+
+- 参考
+  - [MySQL :: MySQL 8.0 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン](https://dev.mysql.com/doc/refman/8.0/ja/password-security-user.html)
+  - [MySQLクライアントを快適に使う設定 - Qiita](https://qiita.com/muramount/items/3b3dbad242e16ff87f6c)
+
