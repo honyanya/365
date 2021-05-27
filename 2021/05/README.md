@@ -213,3 +213,27 @@ $ mysql --defaults-file=/path/to/.develop.my.cnf
   - [MySQL :: MySQL 8.0 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン](https://dev.mysql.com/doc/refman/8.0/ja/password-security-user.html)
   - [MySQLクライアントを快適に使う設定 - Qiita](https://qiita.com/muramount/items/3b3dbad242e16ff87f6c)
 
+
+## 2021/05/27 Thu
+
+2021 Octoverse Survey  
+
+GitHub を見てると、 **2021 Octoverse Survey** という通知があった  
+
+![通知](./images/26/2021-05-26_github.png)
+
+文章  
+
+```
+2021 Octoverse Survey
+Contribute to this year’s Octoverse Report by sharing your experience writing code.
+```
+
+「 10 月調査のサーベイに協力してください」って感じかな  
+そもそも Octoverse Survey って定期的にやっているのかなと調べてみたら去年のレポートが出てきた  
+
+[The State of the Octoverse | The State of the Octoverse explores a year of change with new deep dives into developer productivity, security, and how we build communities on GitHub.](https://octoverse.github.com/)
+
+非常に読み応えのあるレポートだけど翻訳は必死にしないとな......  
+肝心のサーベイ内容もちょっと量が多そうだったので、次のお休みあたりにでも  
+
