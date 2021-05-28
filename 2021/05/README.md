@@ -251,7 +251,7 @@ Contribute to this year’s Octoverse Report by sharing your experience writing 
 
 調べてみるとそういう情報やツールがいっぱい出てきたわけで  
 なんだかんだこういう事は誰もが通る道なんだなと  
-触らないとわからないので、触ってみたらまたここしようかな  
+触らないとわからないので、触ってみたらまたここに書こうかな  
 
 - 参考
   - [【2021年版】Markdownでスライド作成できるツール・サービス × 14選 | NotePM](https://notepm.jp/blog/5994)
