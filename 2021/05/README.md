@@ -258,3 +258,62 @@ Contribute to this year’s Octoverse Report by sharing your experience writing 
   - [[ Markdownでスライド作成 ] 5種類くらいツールを試してみた結果 - Qiita](https://qiita.com/ykhirao/items/74a23f812dd5d22b3b88)
   - [LTのスライド作成に時間をかけたくない - Qiita](https://qiita.com/ta9star/items/da9af53c4bf542d3ae7a)
 
+
+## 2021/05/29 Sat
+
+Slidev を触りたかった  
+
+昨日の続き  
+たまたま会社の同期と話す機会があり [Slidev](https://sli.dev/) をおすすめされた  
+
+`npm` or `yarn` があればすぐ使えるみたい  
+下記で[コマンド](https://sli.dev/guide/#scaffolding-your-first-presentation)で雛形を作成する  
+
+node のバージョンは 14 以上にしておくこと  
+
+```sh
+$ yarn create slidev
+```
+
+name や version などを対話形式で入力して完了させる  
+がやってみるとエラーが出てきており、 `yarn install` も失敗した  
+
+```sh
+warning Error running install script for optional dependency: "/Users/user/.config/yarn/global/node_modules/fsevents: Command failed.
+```
+
+```sh
+Install unsuccessful
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation a
+Error: Command failed with exit code 1: yarn install
+    at makeError (/Users/user/.config/yarn/global/node_modules/create-slidev/node_modules/execa/lib/error.js:59:11)
+    at handlePromise (/Users/user/.config/yarn/global/node_modules/create-slidev/node_modules/execa/index.js:114:26)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async init (/Users/user/.config/yarn/global/node_modules/create-slidev/index.js:121:5) {
+  shortMessage: 'Command failed with exit code 1: yarn install',
+  command: 'yarn install',
+  exitCode: 1,
+  signal: undefined,
+  signalDescription: undefined,
+  stdout: undefined,
+  stderr: undefined,
+  failed: true,
+  timedOut: false,
+  isCanceled: false,
+  killed: false
+}
+✨  Done in 112.85s.
+```
+
+`package.json` を編集したり、再度 `yarn install` も失敗してしてしまうので今日はあきらめることにした  
+
+- 参考
+  - 公式ドキュメント
+    - [Home | Slidev](https://sli.dev/)
+    - [Getting Started | Slidev](https://sli.dev/guide/#scaffolding-your-first-presentation)
+  - 触ってみた内容
+    - [開発者のためのスライド作成ツール Slidev がすごい](https://zenn.dev/ryo_kawamata/articles/introduce-slidev)
+    - [Slidev を使ってみる](https://zenn.dev/ima1zumi/scraps/3d5c1dc8e523e8)
+  - トラブルシューティング
+    - [Reactのversionを上げるためにyarnを実行したらfseventsでERRORが発生した - Qiita](https://qiita.com/keiya01/items/5ea1ef8c2f70b68fde6c)
+
