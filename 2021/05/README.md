@@ -347,3 +347,7 @@ PDF で中身が確認できる
 
 細かいフォーマットなどはドキュメントを見て都度調整かな  
 
+- 参考
+  - [Marp - Markdown Presentation Writer](https://yhatt.github.io/marp/)
+  - [Marpを使ってmarkdownでスライド資料を作成する | DevelopersIO](https://dev.classmethod.jp/articles/make-slides-from-markdown-with-marp/)
+
