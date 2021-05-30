@@ -317,3 +317,37 @@ Error: Command failed with exit code 1: yarn install
   - トラブルシューティング
     - [Reactのversionを上げるためにyarnを実行したらfseventsでERRORが発生した - Qiita](https://qiita.com/keiya01/items/5ea1ef8c2f70b68fde6c)
 
+
+## 2021/05/30 Sun
+
+Marp を VSCode で触る  
+
+昨日の Slidev がうまくできなかったので、今日は [Marp](https://yhatt.github.io/marp/) を触ってみた  
+公式では [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) が推奨されていたのでそちらを使用してみる  
+VSCode 上で動くのは楽ですね  
+
+適当にマークダウンを用意して.....
+
+```md
+# Markdown to Slide by Marp
+
+---
+
+# Smaple Slide 1
+
+- one
+- two
+- three
+```
+
+VS Code 上で `Export slide deck...` を選択して作成する  
+PDF で中身が確認できる  
+
+![できたPDF](./images/30/2021-05-30_marp_sample.png)  
+
+細かいフォーマットなどはドキュメントを見て都度調整かな  
+
+- 参考
+  - [Marp - Markdown Presentation Writer](https://yhatt.github.io/marp/)
+  - [Marpを使ってmarkdownでスライド資料を作成する | DevelopersIO](https://dev.classmethod.jp/articles/make-slides-from-markdown-with-marp/)
+
