@@ -76,11 +76,11 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 
 上記で Listener State が `Listening` となり接続ができた  
 
-![Microsoft Remote Desktop](./images/23/2021-05-23_01_remote_desktop_config.png)  
+![Microsoft Remote Desktop](./images/23/1_remote_desktop_config.png)  
 
-![login](./images/23/2021-05-23_02_remote_login.png)  
+![login](./images/23/2_remote_login.png)  
 
-![windows_desktop](./images/23/2021-05-23_03_remote_desktop.png)  
+![windows_desktop](./images/23/3_remote_desktop.png)  
 
 ここまでやったが Chrome リモート デスクトップの方が早くて簡単かもしれない......  
 
@@ -237,7 +237,7 @@ $ mysql --defaults-file=/path/to/.develop.my.cnf
 
 GitHub を見てると、 **2021 Octoverse Survey** という通知があった  
 
-![通知](./images/26/2021-05-26_github.png)
+![通知](./images/27/1_github.png)
 
 文章  
 
@@ -360,7 +360,7 @@ VSCode 上で動くのは楽ですね
 VS Code 上で `Export slide deck...` を選択して作成する  
 PDF で中身が確認できる  
 
-![できたPDF](./images/30/2021-05-30_marp_sample.png)  
+![できたPDF](./images/30/1_marp_sample.png)  
 
 細かいフォーマットなどはドキュメントを見て都度調整かな  
 
@@ -382,7 +382,7 @@ PDF で中身が確認できる
 
 初めて書こうとするとこのようなメッセージが出る  
 
-![はてなブログ初期メッセージ](./images/31/2021-05-31_01_hatena_blog.png)  
+![はてなブログ初期メッセージ](./images/31/1_hatena_blog.png)  
 
 ```
 はてなブログへようこそ！
@@ -399,7 +399,7 @@ PDF で中身が確認できる
 [はてなブログ アカデミー](https://hatenablog.com/guide/academy)？  
 と思ってみてみると
 
-![はてなブログ アカデミー](./images/31/2021-05-31_02_hatena_blog.png)  
+![はてなブログ アカデミー](./images/31/2_hatena_blog.png)  
 
 
 ```
