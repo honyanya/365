@@ -84,3 +84,31 @@ $ sed -n '4, 8p' ./test.txt
 
 ちょっと体調が思わしくないので明日以降は更新できない可能性があります  
 
+
+## 2021/06/03 Thu
+
+Scala 3 のガイドドキュメントを流し見する  
+
+Scala 3 が 2021/05/14 に正式リリースされて、全然情報を追えてないことを反省しながらも[ガイドドキュメント](https://docs.scala-lang.org/ja/scala3/guides.html)があったので軽く見ることにした  
+[Compatibility Reference](https://docs.scala-lang.org/scala3/guides/migration/compatibility-intro.html)、[Tour of the Migration Tools | Scala 3 Migration Guide | Scala Documentation](https://docs.scala-lang.org/scala3/guides/migration/tooling-tour.html)、[Scala 3 Migration Mode | Scala 3 Migration Guide | Scala Documentation](https://docs.scala-lang.org/scala3/guides/migration/tooling-migration-mode.html)あたりを見ました  
+まだまだ見きれてないけど、メモとしてはこんな感じ  
+
+- Scala 2.13 からの移行はスムーズにできる
+  - クロスコンパイルできる
+  - Scala 2.13 <- Scala 3 で依存可能
+  - 下位／上位互換ができる
+  - コンパイルオプション有
+- sbt は sbt 1.5 から Scala 3 をサポート
+- Metals はサポート有、IntelliJ IDEA は本格的なサポートは準備段階
+- Scalafmt v3.0.0-RC3 は Scala 2.13, Scala 3 をサポート
+- Scalafix はまだで Scala 2.13 のみ
+- [Scala 3 Migrate](https://github.com/scalacenter/scala3-migrate) という移行 sbt プラグインがある
+- scalac migration オプション、 rewrite オプションで書き換え可能
+
+ちゃんと言語もライブラリもアップデートしていないと......  
+
+- 参考
+  - [Scala 3 のガイド | Scala Documentation](https://docs.scala-lang.org/ja/scala3/guides.html)
+
+胃腸の調子、疲労感は昨日と比べて回復しました  
+
