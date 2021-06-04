@@ -132,9 +132,8 @@ macOS で自動生成される `.DS_Store` を除外扱いにしている
 ディレクトリで言うと `.idea/` とかも入るみたい  
 
 同期から↑のような個人の環境依存ファイルは `.gitignore` は含めないで、 `core.excludesFile` に含めると良いアドバイスをもらった   
-`.gitignore_global` に書くのが良いとのアドバイスをもらった  
 
-`.gitignore_global` このようなファイルを作って  
+`.gitignore_global` というようなファイルを作って  
 
 ```sh
 $ cat ~/.gitignore_global
