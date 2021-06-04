@@ -112,3 +112,54 @@ Scala 3 が 2021/05/14 に正式リリースされて、全然情報を追えて
 
 胃腸の調子、疲労感は昨日と比べて回復しました  
 
+
+## 2021/06/04 Fri
+
+個人の環境依存ファイルの除外の仕方を考える  
+
+Git ではバージョン管理したくないファイルを `.gitignore` で管理している  
+この `honyanya / 365` リポジトリも `.gitignore` を用意している  
+
+今ある `.gitignore` はこんな感じ  
+
+```sh
+## Mac
+.DS_Store
+```
+
+macOS で自動生成される `.DS_Store` を除外扱いにしている  
+他にも `.swp` や Windows で生成される `Thumb.db` とかもよく入るかな  
+ディレクトリで言うと `.idea/` とかも入るみたい  
+
+同期から↑のような個人の環境依存ファイルは `.gitignore` は含めないで、 `core.excludesFile` に含めると良いアドバイスをもらった   
+`.gitignore_global` に書くのが良いとのアドバイスをもらった  
+
+`.gitignore_global` このようなファイルを作って  
+
+```sh
+$ cat ~/.gitignore_global
+## Mac
+.DS_Store
+```
+
+git global に設定すれば良いみたい  
+
+```sh
+## 設定
+$ git config --global core.excludesfile ~/.gitignore_global
+
+## 確認
+$ git config --list | grep core.excludesfile
+core.excludesfile=/Users/user/.gitignore_global
+```
+
+いろいろ調べてみると個人の環境依存ファイルを含めないプロジェクトもあれば含めるプロジェクトもあるみたい  
+基本的に `core.excludesFile` で良いかなと思ったけど、いちいち説明をするのも大変だし、 `git add .` されてああ......ってなるぐらいなら `.gitignore` でも良いのかなと思ったり  
+個人のものは `core.excludesFile` に持っていこう  
+
+- 参考
+  - [Ignoring files - GitHub Docs](https://help.github.com/articles/ignoring-files)
+  - [プロジェクトの.gitignoreに.swpファイルなど個人環境依存のファイルは含めない | 高木のブログ](https://takagi.blog/gitignore_global/)
+  - [.gitignoreに.DS_Storeなど個人環境依存のファイルを含めても良いのではないか | blog.tai2.net](https://blog.tai2.net/gitignore.html)
+  - [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
+
