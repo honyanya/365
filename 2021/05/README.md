@@ -19,9 +19,9 @@
 
 ## 2021/05/21 Fri
 
-MySQL の大文字小文字を区別する  
+MySQLの大文字小文字を区別する  
 
-MySQL を使ってて英語の大文字小文字が識別できないという問題があった  
+MySQLを使ってて英語の大文字小文字が識別できないという問題があった  
 `BINARY` 演算子を使って試したが、データ量が多いので根本的に見直す必要がありそう  
 
 ```sql
@@ -34,10 +34,10 @@ SELECT BINARY 'a' = 'A';
 ALTER TABLE `xxx_table` MODIFY COLUMN `xxx_column` TEXT COLLATE 'utf8_bin';
 ```
 
-DB でアプリケーションの仕様に影響が出てきてしまうので難しいですね  
+DBでアプリケーションの仕様に影響が出てきてしまうので難しいですね  
 
 - 参考
-  - MySQL 5.6 のドキュメントだけど......
+  - MySQL 5.6のドキュメントだけど......
     - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.7.7 BINARY 演算子](https://dev.mysql.com/doc/refman/5.6/ja/charset-binary-op.html)
     - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.7.6 _bin および binary 照合順序](https://dev.mysql.com/doc/refman/5.6/ja/charset-binary-collations.html)
   - [MySQL: utf8_bin と utf8_general_ci と utf8_unicode_ci - fメモ いまさら館](http://ftsh.hateblo.jp/entry/2016/04/16/100937)
@@ -45,14 +45,14 @@ DB でアプリケーションの仕様に影響が出てきてしまうので�
 
 ## 2021/05/22 Sat
 
-Windows 10 Home へのリモートデスクトップ接続をしたい  
+Windows 10 Homeへのリモートデスクトップ接続をしたい  
 
-Windows へのリモートデスクトップ接続をしたいなと思って  
-前できたよなと思ったらどうやら Pro エディションじゃないとリモートデスクトップ接続ができないみたい  
-そもそも Home エディションにはリモートデスクトップ接続の設定がない  
+Windowsへのリモートデスクトップ接続をしたいなと思って  
+前できたよなと思ったらどうやらProエディションじゃないとリモートデスクトップ接続ができないみたい  
+そもそもHomeエディションにはリモートデスクトップ接続の設定がない  
 
 はて、と調べてみると [RDPWrap](https://github.com/stascorp/rdpwrap/releases) とういうものがある  
-設定すれば Home エディションでもリモートデスクトップ接続ができるらしい  
+設定すればHomeエディションでもリモートデスクトップ接続ができるらしい  
 
 明日あたりにでもやってみようかな  
 
@@ -62,19 +62,19 @@ Windows へのリモートデスクトップ接続をしたいなと思って
 
 ## 2021/05/23 Sun
 
-RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続をした  
+RDPWrapを使ってWindows 10 Homeへのリモートデスクトップ接続をした  
 
 昨日の続き  
-[参考記事](https://kaisei-eigo.com/remote-desktop-home-edition)の通りにやってみたが Listener State が `Not Listening` となり接続ができない  
-[別の記事](https://kaoruya.org/blog/rdpwrap/)を試したら接続することができた  
+[参考記事](https://kaisei-eigo.com/remote-desktop-home-edition)の通りにやってみたがListener Stateが `Not Listening` となり接続ができない  
+[別の記事](https://kaoruya.org/blog/rdpwrap/)を試したら接続できた  
 
-主にやったことは下記 3 点
+主にやったことは下記3点
 
 - `Remote Desktop Service` の停止
 - `rdpwrap.ini` の更新
 - 再起動
 
-上記で Listener State が `Listening` となり接続ができた  
+上記でListener Stateが `Listening` となり接続ができた  
 
 ![Microsoft Remote Desktop](./images/23/1_remote_desktop_config.png)  
 
@@ -82,7 +82,7 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 
 ![windows_desktop](./images/23/3_remote_desktop.png)  
 
-ここまでやったが Chrome リモート デスクトップの方が早くて簡単かもしれない......  
+ここまでやったがChromeリモート デスクトップの方が早くて簡単かもしれない.....。  
 
 - 参考
   - [【画像つき】Windows10 Homeでもリモートデスクトップを使う方法](https://kaoruya.org/blog/rdpwrap/)
@@ -90,17 +90,17 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 
 ## 2021/05/24 Mon
 
-Python の main 関数  
+Pythonのmain関数  
 
-高校面子が Python 学んでる  
+高校面子がPython学んでる  
 ちょっと話すのに簡単なスクリプトを書いてたりした  
 
 ```py
 print('Hello World!')
 ```
 
-こんな感じで標準出力ができるのだが、ふと main 関数ってあるの？って気になった  
-Perl でなにか書きたいときは以下のように main ルーチンを用意している  
+こんな感じで標準出力ができるのだが、ふとmain関数ってあるの？　って気になった  
+Perlでなにか書きたいときは以下のようにmainルーチンを用意している  
 
 ```pl
 #!/usr/bin/env perl
@@ -121,7 +121,7 @@ sub _helloWorld {
 1;
 ```
 
-Python の main 関数で調べてみると以下のようにやるらしい  
+Pythonのmain関数で調べてみると以下のようにやるらしい  
 
 ```py
 def main():
@@ -145,10 +145,10 @@ if __name__ == "__main__":
 
 ## 2021/05/25 Tue
 
-history には過去が詰まっている ~ $RANDOM, uuidgen ~  
+historyには過去が詰まっている ~ $RANDOM, uuidgen ~  
 
-history を見ていた  
-やたらランダムの数値を出力していたり、 UUID を出力していたりしてた  
+historyを見ていた  
+やたらランダムの数値を出力していたり、 UUIDを出力していたりしてた  
 
 `echo $RANDOM` でランダムな数値を出力  
 
@@ -163,7 +163,7 @@ $ echo $RANDOM
 14770
 ```
 
-`uuidgen` で UUID を出力
+`uuidgen` でUUIDを出力
 
 ```sh
 $ uuidgen
@@ -176,14 +176,14 @@ $ uuidgen
 87A3C807-96B2-4927-AB61-9B7947F287DA
 ```
 
-当時はなんで出力していたのかわからないが、ランダムな数値や UUID を活かしたシェルスクリプトを書くのも良いかもね  
+当時はなんで出力していたのかわからないが、ランダムな数値やUUIDを活かしたシェルスクリプトを書くのも良いかもね  
 
 
 ## 2021/05/26 Wed
 
-MySQL クライアントのパスワード入力を省略したい  
+MySQLクライアントのパスワード入力を省略したい  
 
-GUI クライアントはあまり使わず、大体 CUI で行っており `mysql-client` にはお世話になっている  
+GUIクライアントはあまり使わず、大体CUIで行っており `mysql-client` にはお世話になっている  
 よく接続で使うコマンドは下記、開発環境などに多い  
 
 ```sh
@@ -192,7 +192,7 @@ Enter password:
 ```
 
 `Enter password` が出てパスワードを入力しているが、何回か実行すると入力が大変だったりする  
-`-p` オプションで渡す際に環境変数などで隠すこともできるが......  
+`-p` オプションで渡す際に環境変数などで隠すこともできるが.....。  
 
 ```sh
 $ export MYSQL_PASSWORD=your_password
@@ -235,7 +235,7 @@ $ mysql --defaults-file=/path/to/.develop.my.cnf
 
 2021 Octoverse Survey  
 
-GitHub を見てると、 **2021 Octoverse Survey** という通知があった  
+GitHubを見てると、 **2021 Octoverse Survey** という通知があった  
 
 ![通知](./images/27/1_github.png)
 
@@ -246,8 +246,8 @@ GitHub を見てると、 **2021 Octoverse Survey** という通知があった
 Contribute to this year’s Octoverse Report by sharing your experience writing code.
 ```
 
-「 10 月調査のサーベイに協力してください」って感じかな  
-そもそも Octoverse Survey って定期的にやっているのかなと調べてみたら去年のレポートが出てきた  
+「10月調査のサーベイに協力してください」って感じかな  
+そもそもOctoverse Surveyって定期的にやっているのかなと調べてみたら去年のレポートが出てきた  
 
 [The State of the Octoverse | The State of the Octoverse explores a year of change with new deep dives into developer productivity, security, and how we build communities on GitHub.](https://octoverse.github.com/)
 
@@ -264,7 +264,7 @@ Contribute to this year’s Octoverse Report by sharing your experience writing 
 
 資料を考えて、作って、話す  
 このリードタイムが短ければある程度文字だけでも簡単に話は膨らませることができるのかなと  
-ドキュメントツール・サービスでそういう機能もあるけど、 Git で管理したい気持ちがある  
+ドキュメントツール・サービスでそういう機能もあるけど、 Gitで管理したい気持ちがある  
 
 調べてみるとそういう情報やツールがいっぱい出てきたわけで  
 なんだかんだこういう事は誰もが通る道なんだなと  
@@ -278,7 +278,7 @@ Contribute to this year’s Octoverse Report by sharing your experience writing 
 
 ## 2021/05/29 Sat
 
-Slidev を触りたかった  
+Slidevを触りたかった  
 
 昨日の続き  
 たまたま会社の同期と話す機会があり [Slidev](https://sli.dev/) をおすすめされた  
@@ -286,13 +286,13 @@ Slidev を触りたかった
 `npm` or `yarn` があればすぐ使えるみたい  
 下記で[コマンド](https://sli.dev/guide/#scaffolding-your-first-presentation)で雛形を作成する  
 
-node のバージョンは 14 以上にしておくこと  
+nodeのバージョンは14以上にしておくこと  
 
 ```sh
 $ yarn create slidev
 ```
 
-name や version などを対話形式で入力して完了させる  
+nameやversionなどを対話形式で入力して完了させる  
 がやってみるとエラーが出てきており、 `yarn install` も失敗した  
 
 ```sh
@@ -337,13 +337,13 @@ Error: Command failed with exit code 1: yarn install
 
 ## 2021/05/30 Sun
 
-Marp を VSCode で触る  
+MarpをVSCodeで触る  
 
-昨日の Slidev がうまくできなかったので、今日は [Marp](https://yhatt.github.io/marp/) を触ってみた  
+昨日のSlidevがうまくできなかったので、今日は [Marp](https://yhatt.github.io/marp/) を触ってみた  
 公式では [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) が推奨されていたのでそちらを使用してみる  
-VSCode 上で動くのは楽ですね  
+VSCode上で動くのは楽ですね  
 
-適当にマークダウンを用意して.....
+適当にマークダウンを用意して....。
 
 ```md
 # Markdown to Slide by Marp
@@ -357,8 +357,8 @@ VSCode 上で動くのは楽ですね
 - three
 ```
 
-VS Code 上で `Export slide deck...` を選択して作成する  
-PDF で中身が確認できる  
+VS Code上で `Export slide deck...` を選択して作成する  
+PDFで中身が確認できる  
 
 ![できたPDF](./images/30/1_marp_sample.png)  
 
@@ -373,7 +373,7 @@ PDF で中身が確認できる
 
 はてなブログを書こうと  
 
-この [honyanya / 365](https://github.com/honyanya/365) に自由に記録を残す取り組みが 1 週間も続けている  
+この [honyanya / 365](https://github.com/honyanya/365) に自由に記録を残す取り組みが1週間も続けている  
 せっかくなのできっかけや思ったことなどを書こうかなと思った  
 良い機会なので、これと同じような形では無くブログとして残すことにした  
 
