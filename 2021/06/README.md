@@ -481,3 +481,36 @@ $ /Users/user/workspace/365/node_modules/.bin/textlint --fix 2021/05/README.md
   - [textlint と VS Code で始める文章校正 - Qiita](https://qiita.com/takasp/items/22f7f72b691fda30aea2)
   - [textlintを導入した - Qiita](https://qiita.com/myazzy0/items/a1c5ddf3f2ae446cd1ed)
 
+
+## 2021/06/06 Sun
+
+プロンプトをサクッと変更する  
+
+普段は bash を使っている（いい加減 zsh 切り替えたいなと思いつつ）  
+
+ちょっと検証でコピペする時にわざわざユーザ名などを消すのは大変なので一時的にプロンプトの表示を変えたい  
+`PS1` という環境変数を `~/.bashrc` に設定している  
+
+```sh
+$ printenv PS1
+\[\033[32m\]\u@\h \[\033[35m\]bash \v \[\033[33m\]\w\[\033[36m\]$(__git_ps1) \[\033[00m\]\n \$
+```
+
+なので一時的に変更するには `PS1` 値を変更すれば OK  
+
+```sh
+$ PS1="$ "
+
+$ printenv PS1
+$
+```
+
+コピペしやすくなった  
+
+```sh
+$ echo 'hello'
+hello
+$ echo 'world'
+world
+```
+
