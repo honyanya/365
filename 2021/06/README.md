@@ -571,3 +571,22 @@ gif アニメーションなんか良い例だよね、欲しいよね
 
 うーむ、作るまでにいろいろ操作したり時間がかかりすぎてる気がする......  
 
+
+## 2021/06/08 Tue
+
+core.excludesFile は指定しなくても良い  
+
+[2021/06/04](#20210604-Fri) の続き  
+`core.excludesFile` を設定すると書いたが、まだまだ奥が深かった  
+
+`$HOME/.config/git/ignore` に設定を置くと読み込んでくれるみたい  
+んで [.gitigoreの設定](https://github.com/github/gitignore) がまとまっているリポジトリもあるのでそれを置けばほぼ考えなくて済むみたい  
+
+悩みどころではあるけど、やっぱ明示的にプロジェクトごとに `.gitignore` を設定したい感  
+`.gitignore` の話ができるチームであればより良い選択は取れそうだけど、大体最初に決めちゃってそこから追記するパターンが多い気がする  
+
+- 参考
+  - [まだ .gitconfig に core.excludesfile を設定しているの？ - Qiita](https://qiita.com/ueokande/items/e0409219e7c68e4277b9)
+  - [グローバルな.gitignoreの設定 - みぴん](http://mipin.blog6.fc2.com/blog-entry-130.html)
+  - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
+
