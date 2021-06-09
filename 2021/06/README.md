@@ -590,3 +590,33 @@ core.excludesFile は指定しなくても良い
   - [グローバルな.gitignoreの設定 - みぴん](http://mipin.blog6.fc2.com/blog-entry-130.html)
   - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
 
+
+## 2021/06/09 Wed
+
+ドメインモデリングとは  
+
+設計の前にドメインモデリングをすることになりそうで  
+聞いたことはあるけど実践は無い感じ  
+
+間違っているかもだけど端的に言うと要件の整理や落とし込みに近いものだと思ってる  
+流れとしては下記を想定している  
+
+- ユースケース図を書く
+- ドメインモデル図を書く
+- 集約（オブジェクト）を決める
+- コード（インターフェース設計、内部設計）に落とし込む
+  - これはもう設計かも
+
+やることはやれると思うけど、それが繋がって実際の開発に落とし込めるかは難しそう  
+良くないモデリングをしてしまうと、良くない設計になって開発も難しくなる  
+DDD もオレオレ DDD 感が強いので正しいドメインモデリングができるかはわからない  
+
+開発、コーディングも同じく、設計も経験がものを言うがまだまだ足りないな  
+
+- 参考
+  - [DDDのモデリングとは何なのか、 そしてどうコードに落とすのか](https://www.slideshare.net/koichiromatsuoka/domain-modeling-andcoding)
+  - [ドメインをモデリングするには - Qiita](https://qiita.com/putan/items/3aa0ec1c104f1defa329)
+  - [DDD ドメインモデリングサンプル - Qiita](https://qiita.com/little_hand_s/items/dfa4b156f533ba1a1491)
+  - [ドメイン駆動設計の2つのモデリング手法　ユースケース図とドメインモデル図をどう作る？ - ログミーTech](https://logmi.jp/tech/articles/322835)
+  - [ドメインモデリングの始め方 - Speaker Deck](https://speakerdeck.com/j5ik2o/tomeinmoterinkufalseshi-mefang)
+
