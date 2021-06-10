@@ -663,7 +663,7 @@ master ブランチから main ブランチへ
 
 最後に master ブランチを削除する  
 ちなみに既存の PR を master に向けていると削除できないため、向き先は main へ変更する  
-![main branches default](./images/10/3_main_branche_default.png)  
+![main branches default](./images/10/3_main_branch_default.png)  
 
 GitHub での作業だったが、 GitLab も GitLab 14.0 以降は main ブランチがデフォルトになるみたい  
 
