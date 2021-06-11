@@ -672,3 +672,25 @@ GitHub での作業だったが、 GitLab も GitLab 14.0 以降は main ブラ�
   - [git-branch – Git コマンドリファレンス（日本語版）](https://tracpath.com/docs/git-branch/)
   - [GitLabもデフォルトのブランチ名を「master」から「main」に変更へ、5月から － Publickey](https://www.publickey1.jp/blog/21/gitlabmastermain5.html)
 
+
+## 2021/06/11 Fri
+
+コミットメッセージの lint  
+
+最近コミットについての話をすることが多くて、個人的にもちょっと拘りを持っている  
+textlint もあるし、コミットメッセージの lint とかあるのかなー？と思って調べてみるとあった  
+
+[commitlint - Lint commit messages](https://commitlint.js.org/#/)  
+[conventional-changelog/commitlint: 📓 Lint commit messages](https://github.com/conventional-changelog/commitlint)  
+
+npm / yarn があれば使えて、ルールもいろいろ書けるみたい  
+個人的にちょっと入れてみて触ってみようかな  
+
+いろいろなチームのコミット規約も見てみたいなとも思ったり  
+
+- 参考
+  - [commitlint - Lint commit messages](https://commitlint.js.org/#/)
+  - [conventional-changelog/commitlint: 📓 Lint commit messages](https://github.com/conventional-changelog/commitlint)
+  - [commitlint の紹介 - Qiita](https://qiita.com/ybiquitous/items/74225bc4bf0a9ddcd7dd)
+  - [commitlint + husky でConventional Commitを強制する | WP Kyoto](https://wp-kyoto.net/add-commitlint-with-husky-to-lint-git-commit-message/)
+
