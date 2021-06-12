@@ -665,6 +665,17 @@ master ブランチから main ブランチへ
 ちなみに既存の PR を master に向けていると削除できないため、向き先は main へ変更する  
 ![main branches default](./images/10/3_main_branche_default.png)  
 
+ローカルの master ブランチも忘れずに削除すること  
+
+```sh
+$ git branch -D master
+Deleted branch master (was bfa5096).
+
+$ git branch
+  feature/add_2021-06-11
+* main
+```
+
 GitHub での作業だったが、 GitLab も GitLab 14.0 以降は main ブランチがデフォルトになるみたい  
 
 - 参考
