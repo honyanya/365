@@ -694,3 +694,23 @@ npm / yarn があれば使えて、ルールもいろいろ書けるみたい
   - [commitlint の紹介 - Qiita](https://qiita.com/ybiquitous/items/74225bc4bf0a9ddcd7dd)
   - [commitlint + husky でConventional Commitを強制する | WP Kyoto](https://wp-kyoto.net/add-commitlint-with-husky-to-lint-git-commit-message/)
 
+
+## 2021/06/12 Sat
+
+CMS, Headless CMS, SSG を見る  
+
+静的サイトジェネレーター Static Site Generator（SSG） を調べていた  
+[#25](https://github.com/honyanya/365/issues/25) とかでやりたい旨を簡単に書いていこうとしている  
+
+CMS や Headless CMS との違い？とか気になったので簡単にまとめてみる  
+
+| name | summary | example |
+| --- | --- | --- |
+| CMS | Web サイトのテキスト、画像などのコンテンツを一元管理 | WordPress |
+| Headless CMS | コンテンツ管理はしているが、API で提供する | Contentful |
+| SSG | ビルドして、静的コンテンツとして提供 | Gatsby |
+
+- 参考
+  - [Headless CMSとは？ 代表的な９のCMSを比較してみました！ | 株式会社ウェブ企画パートナーズ](https://wk-partners.co.jp/homepage/blog/hpseisaku/htmlcss/headless-cms/)
+  - [【2021注目】フロントエンド開発「静的サイトジェネレータ」 | FASTCODING BLOG](https://fastcoding.jp/blog/all/info/ssg/)
+
