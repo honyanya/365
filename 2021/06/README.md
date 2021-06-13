@@ -714,3 +714,47 @@ CMS や Headless CMS との違い？とか気になったので簡単にまと�
   - [Headless CMSとは？ 代表的な９のCMSを比較してみました！ | 株式会社ウェブ企画パートナーズ](https://wk-partners.co.jp/homepage/blog/hpseisaku/htmlcss/headless-cms/)
   - [【2021注目】フロントエンド開発「静的サイトジェネレータ」 | FASTCODING BLOG](https://fastcoding.jp/blog/all/info/ssg/)
 
+
+## 2021/06/13 Sun
+
+Nodejs MODULE_NOT_FOUND エラー  
+
+しょーもない内容ですが......  
+ただ hello world を出力させようとしている JS ファイルがあって  
+
+```js
+console.log('hello world');
+```
+
+`MODULE_NOT_FOUND` というエラーが出てきてしまう  
+
+```sh
+$ node test.js
+internal/modules/cjs/loader.js:888
+  throw err;
+  ^
+
+Error: Cannot find module '/Users/user/workspace/path/to/test/test.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:885:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:730:27)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+```
+
+結果から言うと、実行ファイル名を誤っていただけでした  
+
+```sh
+$ node index.js 
+hello world.
+```
+
+ちなみに `code: 'MODULE_NOT_FOUND', requireStack: []` というエラーを軽く調べてみた  
+バージョンアップして出てくる場合はキャッシュをクリアしたり、 `node_modules` を削除して再インストールすると良いみたい  
+
+- 参考
+  - [node.js - Node MODULE_NOT_FOUND - Stack Overflow](https://stackoverflow.com/questions/47083351/node-module-not-found)
+  - [node.js — Node MODULE_NOT_FOUND](https://www.it-swarm-ja.com/ja/node.js/node-modulenotfound/835400535/)
+
