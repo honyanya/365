@@ -769,3 +769,38 @@ hello world.
   - [node.js - Node MODULE_NOT_FOUND - Stack Overflow](https://stackoverflow.com/questions/47083351/node-module-not-found)
   - [node.js — Node MODULE_NOT_FOUND](https://www.it-swarm-ja.com/ja/node.js/node-modulenotfound/835400535/)
 
+
+## 2021/06/14 Mon
+
+textlint-rule-preset-ja-spacing を見る  
+
+2021/06/05 の続き  
+`textlint-rule-preset-ja-spacing` を簡単に見ていく  
+
+GitHub のリポジトリ：  
+[textlint-ja/textlint-rule-preset-ja-spacing: スペース周りのスタイルを扱うtextlintルール集](https://github.com/textlint-ja/textlint-rule-preset-ja-spacing)  
+[ルール一覧](https://github.com/textlint-ja/textlint-rule-preset-ja-spacing#%E3%83%AB%E3%83%BC%E3%83%AB%E4%B8%80%E8%A6%A7)  
+
+こんな感じで `.textlintrc` を変更することでルールを変更することできる  
+
+```js
+{
+  "filters": {},
+  "rules": {
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always"
+      },
+      "ja-space-around-code": {
+         "before": false,
+         "after": false
+      }
+    },
+    "preset-ja-technical-writing": true,
+    "spellcheck-tech-word": true
+  }
+}
+```
+
+変更した内容は [#20](https://github.com/honyanya/365/pull/20/commits/a3a95a74aa4ecfcf27fd9f132f32b830712d226f) で見れる  
+
