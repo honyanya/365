@@ -804,3 +804,45 @@ GitHub のリポジトリ：
 
 変更した内容は [#20](https://github.com/honyanya/365/pull/20/commits/a3a95a74aa4ecfcf27fd9f132f32b830712d226f) で見れる  
 
+
+## 2021/06/15 Tue
+
+Git ブランチの複数削除  
+
+ローカルの Git ブランチが増えてきたから削除したいなと思い  
+
+```sh
+$ git branch
+  feature/add_2021-05-26
+  feature/add_2021-05-27
+  feature/add_2021-05-28
+  feature/add_2021-05-29
+  feature/add_2021-05-30
+  feature/add_2021-05-31
+* master
+```
+
+こんな感じで削除できたら良いのになと思いつつ  
+
+```sh
+$ git branch -d feature/*
+error: branch 'feature/*' not found.
+```
+
+基本 `-d` オプションで削除できるブランチは 1 つ  
+
+複数消す方法としては git branch で一覧出力して、 grep で対象を絞り込み、 xargs で渡してあげれば削除可能  
+
+```sh
+$ git branch | grep feature | xargs git branch -d
+Deleted branch feature/add_2021-05-26 (was e4f25af).
+Deleted branch feature/add_2021-05-27 (was f618292).
+Deleted branch feature/add_2021-05-28 (was f559750).
+Deleted branch feature/add_2021-05-29 (was 9b8eb43).
+Deleted branch feature/add_2021-05-30 (was 0a77816).
+Deleted branch feature/add_2021-05-31 (was 4fe2a5d).
+```
+
+- 参考
+  - [gitの複数のブランチを一括で削除する - Qiita](https://qiita.com/satoshi03/items/c53aab17f3270477e33a)
+
