@@ -858,8 +858,8 @@ PlantUML を触る
 [PlantUML - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)  
 
 フロー図みたいなのを PlantUML で作ってみる  
-テーマは「デリバリー」  
-基本家なのでとても使う機会が多い  
+テーマは「フードデリバリー」  
+基本家に居る機会が多く、自炊もほぼしないため、とても使う機会が多い  
 
 `index.pu`
 
