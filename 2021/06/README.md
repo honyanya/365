@@ -846,3 +846,54 @@ Deleted branch feature/add_2021-05-31 (was 4fe2a5d).
 - 参考
   - [gitの複数のブランチを一括で削除する - Qiita](https://qiita.com/satoshi03/items/c53aab17f3270477e33a)
 
+
+## 2021/06/16 Wed
+
+PlantUML を触る  
+
+ドメインモデリングを行ってて、その時は手書きや他のツールで書いたが最終的にはコードとして残しておきたいなと思った  
+手段の一つで PlantUML があるので触ってみる  
+
+サクッと Visual Studio Code で PlantUML を触りたい場合は下記拡張機能を入れると良い  
+[PlantUML - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)  
+
+フロー図みたいなのを PlantUML で作ってみる  
+テーマは「デリバリー」  
+基本家なのでとても使う機会が多い  
+
+`index.pu`
+
+```plantuml
+@startuml PlantUMLを 使ってみる
+|自分|
+start
+:お腹が減る;
+:デリバリーアプリを起動する;
+|アプリ|
+:商品を見る;
+:商品を注文する;
+|店舗|
+:注文を受ける;
+:商品を作る;
+-> レシートと一緒に商品を渡す;
+|配達ドライバー|
+:商品を受取る;
+:商品を配達する;
+|自分|
+:商品を受取る;
+:いただきます;
+end
+@enduml
+```
+
+作成後、 Visual Studio Code で Alt + d でプレビューが表示される  
+
+![作成した PlantUML](./images/16/1_plantuml.png)
+
+
+他の図を作ったり、 Visual Studio Code 以外でも見れるようにするためには諸々インストールなのが必要なので明日以降触ってみる  
+
+- 参考
+  - [Visual Studio Code で UML を描こう！ - Qiita](https://qiita.com/couzie/items/9dedb834c5aff09ea7b2)
+  - [PlantUML使い方メモ - Qiita](https://qiita.com/opengl-8080/items/98c510b8ca060bdd2ea3)
+
