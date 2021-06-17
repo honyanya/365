@@ -940,7 +940,7 @@ $ git branch -a
   remotes/upstream/main
 
 ## main ブランチでなければ切り替える
-$ it switch main
+$ git switch main
 
 ## ローカルの main ブランチに対して upstream/main ブランチの内容をマージする
 $ git merge upstream/main
