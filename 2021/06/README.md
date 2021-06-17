@@ -897,3 +897,60 @@ end
   - [Visual Studio Code で UML を描こう！ - Qiita](https://qiita.com/couzie/items/9dedb834c5aff09ea7b2)
   - [PlantUML使い方メモ - Qiita](https://qiita.com/opengl-8080/items/98c510b8ca060bdd2ea3)
 
+
+## 2021/06/17 Thu
+
+Fork したリポジトリを最新の状態にする  
+
+久々に Fork したリポジトリを変更する必要が出てきた  
+普段は Fork はせずに権限をもらって直接リポジトリに対して PR を投げている  
+
+Fork した日時はかなり前になっている  
+なので Fork したリポジトリを最新の状態にしないと開発ができない状況である  
+
+手順は下記の通り  
+
+- Fork 元のリポジトリを upstream として登録する
+- upstream の更新を取得する
+- ローカルの main ブランチに対して upstream/main ブランチの内容をマージする
+- origin/main ブランチに対して push する
+
+git での手順は下記になる  
+（記録用なのでコマンドの内容などは書き換えている）  
+
+```sh
+## ローカルとリモートの main ブランチがある
+$ git branch -a
+* main
+  remotes/origin/main
+
+## Fork 元を upstream として登録する
+$ git remote add upstream git@github.com:example_user/example_repository.git
+
+## upstream の更新を取得する
+$ git fetch upstream
+...
+From github.com:example_user/example_repository.git
+ * [new branch]      main -> upstream/main
+
+## upstream/main が一覧で見れる
+$ git branch -a
+* main
+  remotes/origin/main
+  remotes/upstream/main
+
+## main ブランチでなければ切り替える
+$ it switch main
+
+## ローカルの main ブランチに対して upstream/main ブランチの内容をマージする
+$ git merge upstream/main
+
+## origin/main ブランチに対して push する
+$ git push origin main
+```
+
+これで Fork したリポジトリが更新され、 Fork 元リポジトリと同じ更新になる  
+
+- 参考
+  - [GitHubでFork/cloneしたリポジトリを本家リポジトリに追従する - Qiita](https://qiita.com/xtetsuji/items/555a1ef19ed21ee42873)
+
