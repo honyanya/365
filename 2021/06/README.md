@@ -1,5 +1,29 @@
 # 2021/06
 
+<!-- TOC -->
+
+- [2021/06](#202106)
+  - [2021/06/01 Tue](#20210601-tue)
+  - [2021/06/02 Wed](#20210602-wed)
+  - [2021/06/03 Thu](#20210603-thu)
+  - [2021/06/04 Fri](#20210604-fri)
+  - [2021/06/05 Sat](#20210605-sat)
+  - [2021/06/06 Sun](#20210606-sun)
+  - [2021/06/07 Mon](#20210607-mon)
+  - [2021/06/08 Tue](#20210608-tue)
+  - [2021/06/09 Wed](#20210609-wed)
+  - [2021/06/10 Thu](#20210610-thu)
+  - [2021/06/11 Fri](#20210611-fri)
+  - [2021/06/12 Sat](#20210612-sat)
+  - [2021/06/13 Sun](#20210613-sun)
+  - [2021/06/14 Mon](#20210614-mon)
+  - [2021/06/15 Tue](#20210615-tue)
+  - [2021/06/16 Wed](#20210616-wed)
+  - [2021/06/17 Thu](#20210617-thu)
+  - [2021/06/18 Fri](#20210618-fri)
+
+<!-- /TOC -->
+
 ## 2021/06/01 Tue
 
 普段 GitLab 使ってて GitHub 使うと戸惑ったところ  
@@ -953,4 +977,22 @@ $ git push origin main
 
 - 参考
   - [GitHubでFork/cloneしたリポジトリを本家リポジトリに追従する - Qiita](https://qiita.com/xtetsuji/items/555a1ef19ed21ee42873)
+
+
+## 2021/06/18 Fri
+
+普段使っている VSCode の Markdown TOC 拡張機能は無くなっていた  
+
+TOC？  
+TOC は Table of Contents の略で目次の事を指している  
+TOC には見出しが出力されます  
+
+イメージ（ 2021/05 の画像）  
+![2021/05 TOC](./images/18/1_2021-05_toc.png)
+
+TOC を作るために [AlanWalk.Markdown-TOC](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc) をインストールしていたが、今はできないことが判明した  
+GitHub のリポジトリ [AlanWalk/markdown-toc: MarkdownTOC(Table Of Contents) Plugin for Visual Studio Code.](https://github.com/AlanWalk/markdown-toc) もアーカイブされていた  
+（GitHub でアーカイブされたリポジトリは初めて見たかも）  
+
+新しい拡張機能を探さないとなー  
 
