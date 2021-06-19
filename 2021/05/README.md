@@ -66,7 +66,7 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 
 昨日の続き  
 [参考記事](https://kaisei-eigo.com/remote-desktop-home-edition)の通りにやってみたが Listener State が `Not Listening` となり接続ができない  
-[別の記事](https://kaoruya.org/blog/rdpwrap/)を試したら接続することができた  
+[別の記事](https://kaoruya.org/blog/rdpwrap/)を試したら接続できた  
 
 主にやったことは下記 3 点
 
@@ -82,7 +82,7 @@ RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続�
 
 ![windows_desktop](./images/23/3_remote_desktop.png)  
 
-ここまでやったが Chrome リモート デスクトップの方が早くて簡単かもしれない......  
+ここまでやったが Chrome リモート デスクトップの方が早くて簡単かもしれない.....。  
 
 - 参考
   - [【画像つき】Windows10 Homeでもリモートデスクトップを使う方法](https://kaoruya.org/blog/rdpwrap/)
@@ -99,7 +99,7 @@ Python の main 関数
 print('Hello World!')
 ```
 
-こんな感じで標準出力ができるのだが、ふと main 関数ってあるの？って気になった  
+こんな感じで標準出力ができるのだが、ふと main 関数ってあるの？　って気になった  
 Perl でなにか書きたいときは以下のように main ルーチンを用意している  
 
 ```pl
@@ -192,7 +192,7 @@ Enter password:
 ```
 
 `Enter password` が出てパスワードを入力しているが、何回か実行すると入力が大変だったりする  
-`-p` オプションで渡す際に環境変数などで隠すこともできるが......  
+`-p` オプションで渡す際に環境変数などで隠すこともできるが.....。  
 
 ```sh
 $ export MYSQL_PASSWORD=your_password
@@ -246,7 +246,7 @@ GitHub を見てると、 **2021 Octoverse Survey** という通知があった
 Contribute to this year’s Octoverse Report by sharing your experience writing code.
 ```
 
-「 10 月調査のサーベイに協力してください」って感じかな  
+「10 月調査のサーベイに協力してください」って感じかな  
 そもそも Octoverse Survey って定期的にやっているのかなと調べてみたら去年のレポートが出てきた  
 
 [The State of the Octoverse | The State of the Octoverse explores a year of change with new deep dives into developer productivity, security, and how we build communities on GitHub.](https://octoverse.github.com/)
@@ -343,7 +343,7 @@ Marp を VSCode で触る
 公式では [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) が推奨されていたのでそちらを使用してみる  
 VSCode 上で動くのは楽ですね  
 
-適当にマークダウンを用意して.....
+適当にマークダウンを用意して....。
 
 ```md
 # Markdown to Slide by Marp
