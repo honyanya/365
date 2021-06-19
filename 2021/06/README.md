@@ -673,7 +673,7 @@ $ git branch
 $ git push origin main
 ```
 
-`git branch` の `-m` / `-M` オプション の違い  
+`git branch` の `-m` / `-M` オプションの違い  
 変更先のブランチがあった場合に、小文字オプションは変更しない  
 大文字オプションは上書きになる  
 
@@ -734,7 +734,7 @@ npm / yarn があれば使えて、ルールもいろいろ書けるみたい
 
 CMS, Headless CMS, SSG を見る  
 
-静的サイトジェネレーター Static Site Generator（SSG） を調べていた  
+静的サイトジェネレーター Static Site Generator（SSG）を調べていた  
 [#25](https://github.com/honyanya/365/issues/25) とかでやりたい旨を簡単に書いていこうとしている  
 
 CMS や Headless CMS との違い？とか気になったので簡単にまとめてみる  
@@ -987,7 +987,7 @@ TOC？
 TOC は Table of Contents の略で目次の事を指している  
 TOC には見出しが出力されます  
 
-イメージ（ 2021/05 の画像）  
+イメージ（2021/05 の画像）  
 ![2021/05 TOC](./images/18/1_2021-05_toc.png)
 
 TOC を作るために [AlanWalk.Markdown-TOC](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc) をインストールしていたが、今はできないことが判明した  

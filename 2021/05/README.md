@@ -22,13 +22,13 @@
 MySQL の大文字小文字を区別する  
 
 MySQL を使ってて英語の大文字小文字が識別できないという問題があった  
-`BINARY`演算子を使って試したが、データ量が多いので根本的に見直す必要がありそう  
+`BINARY` 演算子を使って試したが、データ量が多いので根本的に見直す必要がありそう  
 
 ```sql
 SELECT BINARY 'a' = 'A';
 ```
 
-カラムの照合順序が`utf8_general_ci`だから`utf8_bin`に直せば良いのかな  
+カラムの照合順序が `utf8_general_ci` だから `utf8_bin` に直せば良いのかな  
 
 ```sql
 ALTER TABLE `xxx_table` MODIFY COLUMN `xxx_column` TEXT COLLATE 'utf8_bin';
@@ -65,16 +65,16 @@ Windows へのリモートデスクトップ接続をしたいなと思って
 RDPWrap を使って Windows 10 Home へのリモートデスクトップ接続をした  
 
 昨日の続き  
-[参考記事](https://kaisei-eigo.com/remote-desktop-home-edition)の通りにやってみたが Listener State が`Not Listening`となり接続ができない  
+[参考記事](https://kaisei-eigo.com/remote-desktop-home-edition)の通りにやってみたが Listener State が `Not Listening` となり接続ができない  
 [別の記事](https://kaoruya.org/blog/rdpwrap/)を試したら接続できた  
 
 主にやったことは下記 3 点
 
-- `Remote Desktop Service`の停止
-- `rdpwrap.ini`の更新
+- `Remote Desktop Service` の停止
+- `rdpwrap.ini` の更新
 - 再起動
 
-上記で Listener State が`Listening`となり接続ができた  
+上記で Listener State が `Listening` となり接続ができた  
 
 ![Microsoft Remote Desktop](./images/23/1_remote_desktop_config.png)  
 
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     main()
 ```
 
-`if __name__ == "__main__":`はモジュールとしてインポートした際に処理が動かないようにするために必要みたい  
+`if __name__ == "__main__":` はモジュールとしてインポートした際に処理が動かないようにするために必要みたい  
 今日は朝が早かったのでこのへんで  
 
 - 参考
@@ -150,7 +150,7 @@ history には過去が詰まっている ~ $RANDOM, uuidgen ~
 history を見ていた  
 やたらランダムの数値を出力していたり、 UUID を出力していたりしてた  
 
-`echo $RANDOM`でランダムな数値を出力  
+`echo $RANDOM` でランダムな数値を出力  
 
 ```sh
 $ echo $RANDOM
@@ -163,7 +163,7 @@ $ echo $RANDOM
 14770
 ```
 
-`uuidgen`で UUID を出力
+`uuidgen` で UUID を出力
 
 ```sh
 $ uuidgen
@@ -183,7 +183,7 @@ $ uuidgen
 
 MySQL クライアントのパスワード入力を省略したい  
 
-GUI クライアントはあまり使わず、大体 CUI で行っており`mysql-client`にはお世話になっている  
+GUI クライアントはあまり使わず、大体 CUI で行っており `mysql-client` にはお世話になっている  
 よく接続で使うコマンドは下記、開発環境などに多い  
 
 ```sh
@@ -191,8 +191,8 @@ $ mysql -uyour_user -p -hlocalhost
 Enter password:
 ```
 
-`Enter password`が出てパスワードを入力しているが、何回か実行すると入力が大変だったりする  
-`-p`オプションで渡す際に環境変数などで隠すこともできるが.....。  
+`Enter password` が出てパスワードを入力しているが、何回か実行すると入力が大変だったりする  
+`-p` オプションで渡す際に環境変数などで隠すこともできるが.....。  
 
 ```sh
 $ export MYSQL_PASSWORD=your_password
@@ -203,7 +203,7 @@ $ mysql -uyour_user -p$MYSQL_PASSWORD -hlocalhost
 ```
 
 調べてみると外部ファイルを読み込んで接続できるみたい  
-`--defaults-file`オプションを使用する  
+`--defaults-file` オプションを使用する  
 
 設定ファイルを用意する  
 `/path/to/.develop.my.cnf`  
@@ -283,7 +283,7 @@ Slidev を触りたかった
 昨日の続き  
 たまたま会社の同期と話す機会があり [Slidev](https://sli.dev/) をおすすめされた  
 
-`npm` or `yarn`があればすぐ使えるみたい  
+`npm` or `yarn` があればすぐ使えるみたい  
 下記で[コマンド](https://sli.dev/guide/#scaffolding-your-first-presentation)で雛形を作成する  
 
 node のバージョンは 14 以上にしておくこと  
@@ -293,7 +293,7 @@ $ yarn create slidev
 ```
 
 name や version などを対話形式で入力して完了させる  
-がやってみるとエラーが出てきており、 `yarn install`も失敗した  
+がやってみるとエラーが出てきており、 `yarn install` も失敗した  
 
 ```sh
 warning Error running install script for optional dependency: "/Users/user/.config/yarn/global/node_modules/fsevents: Command failed.
@@ -322,7 +322,7 @@ Error: Command failed with exit code 1: yarn install
 ✨  Done in 112.85s.
 ```
 
-`package.json`を編集したり、再度`yarn install`も失敗してしてしまうので今日はあきらめることにした  
+`package.json` を編集したり、再度 `yarn install` も失敗してしてしまうので今日はあきらめることにした  
 
 - 参考
   - 公式ドキュメント
@@ -357,7 +357,7 @@ VSCode 上で動くのは楽ですね
 - three
 ```
 
-VS Code 上で`Export slide deck...`を選択して作成する  
+VS Code 上で `Export slide deck...` を選択して作成する  
 PDF で中身が確認できる  
 
 ![できたPDF](./images/30/1_marp_sample.png)  
