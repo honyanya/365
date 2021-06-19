@@ -21,6 +21,7 @@
   - [2021/06/16 Wed](#20210616-wed)
   - [2021/06/17 Thu](#20210617-thu)
   - [2021/06/18 Fri](#20210618-fri)
+  - [2021/06/19 Sat](#20210619-sat)
 
 <!-- /TOC -->
 
@@ -995,4 +996,42 @@ GitHub のリポジトリ [AlanWalk/markdown-toc: MarkdownTOC(Table Of Contents)
 （GitHub でアーカイブされたリポジトリは初めて見たかも）  
 
 新しい拡張機能を探さないとなー  
+
+
+## 2021/06/19 Sat
+
+GitHub Actions を触る  
+
+[GitHub Actions](https://github.co.jp/features/actions) は GitHub が提供している CI/CD サービス  
+push や merge のイベントで自動でテストやデプロイをすることができる  
+[GitLab CI/CD](https://docs.gitlab.com/ce/ci/) は使ったことあるので GitHub での CI/CD を触ってみることにする  
+
+`./github/workflows/` に yml ファイルを置く  
+今回は `helloworld.yml` を書いた  
+
+```yaml
+name: GitHub Actions Hello World!
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: echo
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World!"
+```
+
+yml 自体はただ Hellow World! を出力しているだけ  
+こんなファイルを置くことで、 main ブランチの更新タイミングで GitHub Actions が実行される  
+
+- 参考
+  - [GitHub Actionsのワークフロー構文 - GitHub Docs](https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions)
+  - [GitHub Actions: Hello World | GitHub Learning Lab](https://lab.github.com/githubtraining/github-actions:-hello-world)
+  - [GitHub ActionsでHello World - Qiita](https://qiita.com/Teach/items/d2c4d7bec98228df1807)
+  - [GitHub Actions でプルリクのマージでワークフローを実行する - Qiita](https://qiita.com/okazy/items/7ab46f2c20ec341a2836)
+  - [GitHub Actionsの理解とHello Worldを出力する | tech-broccoli.life](https://tech-broccoli.life/articles/engineer/use-github-actions-hello-world/)
 
