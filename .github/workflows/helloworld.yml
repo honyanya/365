@@ -1,0 +1,13 @@
+name: GitHub Actions Hello World!
+
+on:
+  push:
+    branches:
+      - feature/add_github_actions
+
+jobs:
+  build:
+    name: echo
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World!"
