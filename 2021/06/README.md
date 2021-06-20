@@ -3,25 +3,26 @@
 <!-- TOC -->
 
 - [2021/06](#202106)
-  - [2021/06/01 Tue](#20210601-tue)
-  - [2021/06/02 Wed](#20210602-wed)
-  - [2021/06/03 Thu](#20210603-thu)
-  - [2021/06/04 Fri](#20210604-fri)
-  - [2021/06/05 Sat](#20210605-sat)
-  - [2021/06/06 Sun](#20210606-sun)
-  - [2021/06/07 Mon](#20210607-mon)
-  - [2021/06/08 Tue](#20210608-tue)
-  - [2021/06/09 Wed](#20210609-wed)
-  - [2021/06/10 Thu](#20210610-thu)
-  - [2021/06/11 Fri](#20210611-fri)
-  - [2021/06/12 Sat](#20210612-sat)
-  - [2021/06/13 Sun](#20210613-sun)
-  - [2021/06/14 Mon](#20210614-mon)
-  - [2021/06/15 Tue](#20210615-tue)
-  - [2021/06/16 Wed](#20210616-wed)
-  - [2021/06/17 Thu](#20210617-thu)
-  - [2021/06/18 Fri](#20210618-fri)
-  - [2021/06/19 Sat](#20210619-sat)
+    - [2021/06/01 Tue](#20210601-tue)
+    - [2021/06/02 Wed](#20210602-wed)
+    - [2021/06/03 Thu](#20210603-thu)
+    - [2021/06/04 Fri](#20210604-fri)
+    - [2021/06/05 Sat](#20210605-sat)
+    - [2021/06/06 Sun](#20210606-sun)
+    - [2021/06/07 Mon](#20210607-mon)
+    - [2021/06/08 Tue](#20210608-tue)
+    - [2021/06/09 Wed](#20210609-wed)
+    - [2021/06/10 Thu](#20210610-thu)
+    - [2021/06/11 Fri](#20210611-fri)
+    - [2021/06/12 Sat](#20210612-sat)
+    - [2021/06/13 Sun](#20210613-sun)
+    - [2021/06/14 Mon](#20210614-mon)
+    - [2021/06/15 Tue](#20210615-tue)
+    - [2021/06/16 Wed](#20210616-wed)
+    - [2021/06/17 Thu](#20210617-thu)
+    - [2021/06/18 Fri](#20210618-fri)
+    - [2021/06/19 Sat](#20210619-sat)
+    - [2021/06/20 Sun](#20210620-sun)
 
 <!-- /TOC -->
 
@@ -1034,4 +1035,40 @@ yml 自体はただ Hellow World! を出力しているだけ
   - [GitHub ActionsでHello World - Qiita](https://qiita.com/Teach/items/d2c4d7bec98228df1807)
   - [GitHub Actions でプルリクのマージでワークフローを実行する - Qiita](https://qiita.com/okazy/items/7ab46f2c20ec341a2836)
   - [GitHub Actionsの理解とHello Worldを出力する | tech-broccoli.life](https://tech-broccoli.life/articles/engineer/use-github-actions-hello-world/)
+
+
+## 2021/06/20 Sun
+
+Next.js でブログを作ってみる  
+
+2021/06/12 の続き  
+SSG を調べてみると Next.js が一番人気そうだった  
+[Static Site Generators - Top Open Source SSGs | Jamstack](https://jamstack.org/generators/)  
+
+![Static Site Generators](./images/20/1_jamstack_ssg.png)
+
+なので Next.js を触ってみることにした  
+とりあえずリポジトリやドキュメントを見て下記コマンドで雛形を作ることができた  
+
+```sh
+$ yarn create next-app --example blog-starter-typescript blog-starter-typescript-app
+```
+
+んで動かしてみる  
+
+```sh
+$ cd ./blog-starter-typescript-app/
+$ yarn dev
+```
+
+localhost:3000 に接続して確認ができる  
+
+![blog-starter-typescript-app](./images/20/2_blog-starter-typescript-app_view.png)  
+
+そもそも Next.js の構成しかり、 TypeScript の定義だったり、デザインも苦手なので納得行く形まではすごく時間かかりそう......  
+
+- 参考
+  - [Getting Started | Next.js](https://nextjs.org/docs#setup)
+  - [next.js/examples/blog-starter at canary · vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples/blog-starter)
+  - [next.js/examples/blog-starter-typescript at canary · vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
 
