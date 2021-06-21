@@ -23,6 +23,7 @@
     - [2021/06/18 Fri](#20210618-fri)
     - [2021/06/19 Sat](#20210619-sat)
     - [2021/06/20 Sun](#20210620-sun)
+    - [2021/06/21 Mon](#20210621-mon)
 
 <!-- /TOC -->
 
@@ -1071,4 +1072,185 @@ localhost:3000 に接続して確認ができる
   - [Getting Started | Next.js](https://nextjs.org/docs#setup)
   - [next.js/examples/blog-starter at canary · vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples/blog-starter)
   - [next.js/examples/blog-starter-typescript at canary · vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
+
+
+## 2021/06/21 Mon
+
+GitHub API を使ってみる  
+
+このリポジトリ（自由に記録を残す、メモを書く）がなんと 1 ヶ月も続いた  
+ふりかえり自体は別で書くとして、 PR を作って作成したのでうまくしたら分析ができるかもと思い GitHub API から PR の情報を取ってみることにした  
+
+まずは Token を取得する  
+[Personal Access Tokens](https://github.com/settings/tokens) にアクセスして取得すれば OK  
+`repo:status` のみチェックを入れた  
+
+Token を変数に登録する  
+
+```sh
+$ export token="your_token"
+$ printenv token
+your_token
+```
+
+ユーザ情報を取得する  
+
+```sh
+$ curl -u username:$token https://api.github.com/users/[your_github_account_name]
+```
+
+JSON で結果が返ってくるので準備完了  
+
+PR の情報を API で取得する  
+今回は close になったものを取得する  
+ちなみにデフォルトだと 30 件取得できる  
+
+API のレート制限（リクエスト数の制限）があるため、結果をファイルに書き込むことにした  
+
+```sh
+curl -u username:$token https://api.github.com/repos/honyanya/365/pulls?state=close > github_pr_close.json
+```
+
+あとは jq で触る  
+タイトル、作成日時、マージ日時の 3 つを抽出してみる  
+
+```sh
+$ cat ./github_pr_close.json | jq '.[] | .title, .created_at, .merged_at'
+"[feature/add_2021-06-20][add] Next.js でブログを作ってみる"
+"2021-06-20T14:15:55Z"
+"2021-06-20T14:16:00Z"
+"[feature/add_2021-06-19][add] GitHub Actions を触る"
+"2021-06-19T14:27:59Z"
+"2021-06-19T14:28:07Z"
+"[feature/add_github_actions][add] GitHub Actions 追加"
+"2021-06-19T07:41:18Z"
+"2021-06-19T08:08:50Z"
+"[feature/add_github_templates][fix] テンプレートが1つのため"
+"2021-06-19T07:31:20Z"
+"2021-06-19T07:31:29Z"
+"[feature/add_github_templates][add] GitHub templates の追加"
+"2021-06-19T07:12:55Z"
+"2021-06-19T07:25:19Z"
+"[feature/add_2021-06-18][add] 普段使っている VSCode の Markdown TOC 拡張機能は無くなっていた"
+"2021-06-18T14:41:05Z"
+"2021-06-18T14:41:14Z"
+"[feature/fix_2021-06-17][fix] Fork したリポジトリを最新の状態にする typo があったため"
+"2021-06-17T23:57:50Z"
+"2021-06-17T23:57:59Z"
+"[feature/add_2021-06-17][add] Fork したリポジトリを最新の状態にする"
+"2021-06-17T14:41:05Z"
+"2021-06-17T14:41:16Z"
+"[feature/add_2021-06-16][add] PlantUML を触る"
+"2021-06-16T14:17:43Z"
+"2021-06-16T14:20:05Z"
+"[feature/add_2021-06-15][add] Git ブランチの複数削除"
+"2021-06-15T14:31:36Z"
+"2021-06-15T14:31:44Z"
+"[feature/add_2021-06-14][add] textlint-rule-preset-ja-spacing を見る"
+"2021-06-14T14:57:49Z"
+"2021-06-14T14:57:58Z"
+"[feature/add_2021-06-13][add] Nodejs MODULE_NOT_FOUND エラー"
+"2021-06-13T14:46:32Z"
+"2021-06-13T14:47:14Z"
+"[feature/add_2021-06-12][add] CMS, Headless CMS, SSG を見る"
+"2021-06-13T14:45:23Z"
+"2021-06-13T14:46:12Z"
+"[feature/fix_2021-06-10][fix] ローカルのブランチ削除の記載が無かったため"
+"2021-06-12T01:26:36Z"
+"2021-06-12T01:27:19Z"
+"[feature/add_2021-06-11][add] コミットメッセージの lint"
+"2021-06-11T14:03:05Z"
+"2021-06-11T14:03:16Z"
+"[feature/add_2021-06-10][fix] master ブランチから main ブランチへ切り替える 画像名修正"
+"2021-06-10T14:53:17Z"
+"2021-06-10T14:53:25Z"
+"[feature/add_2021-06-10][add] master ブランチから main ブランチへ切り替える"
+"2021-06-10T14:46:05Z"
+"2021-06-10T14:48:45Z"
+"[feature/add_2021-06-09][add] ドメインモデリングとは"
+"2021-06-09T14:41:29Z"
+"2021-06-09T14:42:19Z"
+"[feature/add_2021-06-08][add] core.excludesFile は指定しなくても良い"
+"2021-06-08T14:11:44Z"
+"2021-06-08T14:12:04Z"
+"[feature/add_2021-06-07][fix] 過去に戻ってしまっていた"
+"2021-06-07T15:04:55Z"
+"2021-06-07T15:05:08Z"
+"[feature/add_2021-06-07][add] 自分の gif 画像の作り方は回りくどい！"
+"2021-06-07T14:46:14Z"
+"2021-06-07T14:53:26Z"
+"[feature/add_2021-06-06][add] プロンプトをサクッと変更する"
+"2021-06-06T13:57:03Z"
+"2021-06-06T13:59:15Z"
+"[feature/add_2021-06-05][add] textlint を実行してみる"
+"2021-06-05T14:31:16Z"
+"2021-06-05T14:33:16Z"
+"[feature/add_textlint][add] textlint の導入と実施"
+"2021-06-05T14:21:49Z"
+"2021-06-19T07:02:07Z"
+"[feature/feature_2021-06-04][fix] 個人の環境依存ファイルの除外の仕方を考える 一部文章がおかしかったため"
+"2021-06-04T14:33:47Z"
+"2021-06-04T14:33:53Z"
+"[feature/feature_2021-06-04][fix] 個人の環境依存ファイルの除外の仕方を考える"
+"2021-06-04T14:27:40Z"
+"2021-06-04T14:28:56Z"
+"[feature/fix_2021-06-02][fix] 誤字があったため"
+"2021-06-03T11:34:53Z"
+"2021-06-03T11:35:39Z"
+"[feature/add_2021-06-03][add] Scala 3 のガイドドキュメントを流し見する"
+"2021-06-02T22:45:00Z"
+"2021-06-02T22:45:11Z"
+"[feature/add_2021-06-02][add] テキストファイルを復習行出力したい"
+"2021-06-02T13:23:20Z"
+"2021-06-02T13:24:38Z"
+"[feature/add_2021-06-01][add] 普段 GitLab 使ってて GitHub 使うと戸惑ったところ"
+"2021-05-31T21:57:38Z"
+"2021-05-31T21:58:26Z"
+```
+
+これを CSV に変換する  
+
+```sh
+$ cat ./github_pr_close.json | jq '.[] | [.title, .created_at, .merged_at] | @csv'
+"\"[feature/add_2021-06-20][add] Next.js でブログを作ってみる\",\"2021-06-20T14:15:55Z\",\"2021-06-20T14:16:00Z\""
+"\"[feature/add_2021-06-19][add] GitHub Actions を触る\",\"2021-06-19T14:27:59Z\",\"2021-06-19T14:28:07Z\""
+"\"[feature/add_github_actions][add] GitHub Actions 追加\",\"2021-06-19T07:41:18Z\",\"2021-06-19T08:08:50Z\""
+"\"[feature/add_github_templates][fix] テンプレートが1つのため\",\"2021-06-19T07:31:20Z\",\"2021-06-19T07:31:29Z\""
+"\"[feature/add_github_templates][add] GitHub templates の追加\",\"2021-06-19T07:12:55Z\",\"2021-06-19T07:25:19Z\""
+"\"[feature/add_2021-06-18][add] 普段使っている VSCode の Markdown TOC 拡張機能は無くなっていた\",\"2021-06-18T14:41:05Z\",\"2021-06-18T14:41:14Z\""
+"\"[feature/fix_2021-06-17][fix] Fork したリポジトリを最新の状態にする typo があったため\",\"2021-06-17T23:57:50Z\",\"2021-06-17T23:57:59Z\""
+"\"[feature/add_2021-06-17][add] Fork したリポジトリを最新の状態にする\",\"2021-06-17T14:41:05Z\",\"2021-06-17T14:41:16Z\""
+"\"[feature/add_2021-06-16][add] PlantUML を触る\",\"2021-06-16T14:17:43Z\",\"2021-06-16T14:20:05Z\""
+"\"[feature/add_2021-06-15][add] Git ブランチの複数削除\",\"2021-06-15T14:31:36Z\",\"2021-06-15T14:31:44Z\""
+"\"[feature/add_2021-06-14][add] textlint-rule-preset-ja-spacing を見る\",\"2021-06-14T14:57:49Z\",\"2021-06-14T14:57:58Z\""
+"\"[feature/add_2021-06-13][add] Nodejs MODULE_NOT_FOUND エラー\",\"2021-06-13T14:46:32Z\",\"2021-06-13T14:47:14Z\""
+"\"[feature/add_2021-06-12][add] CMS, Headless CMS, SSG を見る\",\"2021-06-13T14:45:23Z\",\"2021-06-13T14:46:12Z\""
+"\"[feature/fix_2021-06-10][fix] ローカルのブランチ削除の記載が無かったため\",\"2021-06-12T01:26:36Z\",\"2021-06-12T01:27:19Z\""
+"\"[feature/add_2021-06-11][add] コミットメッセージの lint\",\"2021-06-11T14:03:05Z\",\"2021-06-11T14:03:16Z\""
+"\"[feature/add_2021-06-10][fix] master ブランチから main ブランチへ切り替える 画像名修正\",\"2021-06-10T14:53:17Z\",\"2021-06-10T14:53:25Z\""
+"\"[feature/add_2021-06-10][add] master ブランチから main ブランチへ切り替える\",\"2021-06-10T14:46:05Z\",\"2021-06-10T14:48:45Z\""
+"\"[feature/add_2021-06-09][add] ドメインモデリングとは\",\"2021-06-09T14:41:29Z\",\"2021-06-09T14:42:19Z\""
+"\"[feature/add_2021-06-08][add] core.excludesFile は指定しなくても良い\",\"2021-06-08T14:11:44Z\",\"2021-06-08T14:12:04Z\""
+"\"[feature/add_2021-06-07][fix] 過去に戻ってしまっていた\",\"2021-06-07T15:04:55Z\",\"2021-06-07T15:05:08Z\""
+"\"[feature/add_2021-06-07][add] 自分の gif 画像の作り方は回りくどい！\",\"2021-06-07T14:46:14Z\",\"2021-06-07T14:53:26Z\""
+"\"[feature/add_2021-06-06][add] プロンプトをサクッと変更する\",\"2021-06-06T13:57:03Z\",\"2021-06-06T13:59:15Z\""
+"\"[feature/add_2021-06-05][add] textlint を実行してみる\",\"2021-06-05T14:31:16Z\",\"2021-06-05T14:33:16Z\""
+"\"[feature/add_textlint][add] textlint の導入と実施\",\"2021-06-05T14:21:49Z\",\"2021-06-19T07:02:07Z\""
+"\"[feature/feature_2021-06-04][fix] 個人の環境依存ファイルの除外の仕方を考える 一部文章がおかしかったため\",\"2021-06-04T14:33:47Z\",\"2021-06-04T14:33:53Z\""
+"\"[feature/feature_2021-06-04][fix] 個人の環境依存ファイルの除外の仕方を考える\",\"2021-06-04T14:27:40Z\",\"2021-06-04T14:28:56Z\""
+"\"[feature/fix_2021-06-02][fix] 誤字があったため\",\"2021-06-03T11:34:53Z\",\"2021-06-03T11:35:39Z\""
+"\"[feature/add_2021-06-03][add] Scala 3 のガイドドキュメントを流し見する\",\"2021-06-02T22:45:00Z\",\"2021-06-02T22:45:11Z\""
+"\"[feature/add_2021-06-02][add] テキストファイルを復習行出力したい\",\"2021-06-02T13:23:20Z\",\"2021-06-02T13:24:38Z\""
+"\"[feature/add_2021-06-01][add] 普段 GitLab 使ってて GitHub 使うと戸惑ったところ\",\"2021-05-31T21:57:38Z\",\"2021-05-31T21:58:26Z\""
+```
+
+CSV までできればスプレッドシートなりで簡単に計算とかができる  
+今日もだけど、作成日時とマージ日時にあまり差が無いので、先に PR は作らないとダメだなあ......  
+
+- 参考
+  - [REST APIを使ってみる - GitHub Docs](https://docs.github.com/ja/rest/guides/getting-started-with-the-rest-api)
+  - [個人アクセストークンを使用する - GitHub Docs](https://docs.github.com/ja/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+  - [GitHub APIでPull Requestを取得する - Qiita](https://qiita.com/kz800/items/f822fe7a3b285b14085c)
+  - [jqコマンドで複数のキーを抽出する | ハックノート](https://hacknote.jp/archives/35873/)
+  - [jq コマンドで JSON を CSV に変換する. jq command supports conversion from… | by Goro Yanagi | VELTRA Engineering | Medium](https://medium.com/veltra-engineering/jq-supports-json-to-csv-fb5c951a9575)
 
