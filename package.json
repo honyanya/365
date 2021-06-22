@@ -3,6 +3,12 @@
     "lint": "textlint './**/*.md'",
     "lint:fix": "textlint './**/*.md' --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
+  },
   "devDependencies": {
     "husky": "^6.0.0",
     "textlint": "^12.0.0",
