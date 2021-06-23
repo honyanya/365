@@ -4,12 +4,6 @@
     "lint:fix": "textlint './**/*.md' --fix",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn lint"
-    }
-  },
   "devDependencies": {
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
