@@ -25,6 +25,7 @@
     - [2021/06/20 Sun](#20210620-sun)
     - [2021/06/21 Mon](#20210621-mon)
     - [2021/06/22 Tue](#20210622-tue)
+    - [2021/06/23 Wed](#20210623-wed)
 
 <!-- /TOC -->
 
@@ -1347,4 +1348,93 @@ $ cat ./github_pr_close3.json | jq '.[] | [.title, .created_at, .merged_at] | @c
 
 - 参考
   - [GitHub Search API only return 30 results - Stack Overflow](https://stackoverflow.com/questions/30656761/github-search-api-only-return-30-results)
+
+
+## 2021/06/23 Wed
+
+husky を入れて、コミット時に textlint を実行する  
+
+pre-commit などを良い感じにしてくれる [husky](https://www.npmjs.com/package/husky) を追加してみる  
+husky を入れたいなについては [Twitter](https://twitter.com/honyanyas/status/1399007819743957001) でも軽くつぶやいていた  
+ゴールはコミット時に textlint が実行されること  
+Pull Request ： [[feature/add_husky] husky を追加 by honyanya · Pull Request #51 · honyanya/365](https://github.com/honyanya/365/pull/51/)  
+
+yarn で追加する  
+
+```sh
+yarn add -D husky
+```
+
+`package.json` の `scripts` に `prepare` を追記する  
+
+```json
+...
+    "prepare": "husky install"
+...
+```
+
+実行する  
+`~/.husky/` が追加される  
+
+```
+$ yarn prepare
+yarn run v1.22.10
+$ husky install
+husky - Git hooks installed
+✨  Done in 0.28s.
+```
+
+pre-commit の設定を追加  
+`~/.husky/pre-commit` が追加される  
+（README に書いてあった npx を一旦そのまま叩いた）  
+
+```sh
+$ npx husky add .husky/pre-commit "textlint './**/*.md'"
+```
+
+```sh
+$ cat .husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn textlint './**/*.md'
+```
+
+こんなマークダウンを用意  
+6 行目で textlint の今の設定に引っかかる  
+
+```md
+# test
+
+## test2
+
+testtesttest テスト・テストテスト  
+testtesttestテスト・テストテスト  
+
+```
+
+コミットしてみる  
+
+```sh
+$ git commit -m "[feature/add_husky][add] test commit"
+yarn run v1.22.10
+$ /Users/user/workspace/365/node_modules/.bin/textlint './**/*.md'
+
+/Users/user/workspace/365/test.md
+  6:12  ✓ error  原則として、全角文字と半角文字の間にスペースを入れます。  ja-spacing/ja-space-between-half-and-full-width
+
+✖ 1 problem (1 error, 0 warnings)
+✓ 1 fixable problem.
+Try to run: $ textlint --fix [file]
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+husky - pre-commit hook exited with code 1 (error)
+```
+
+commit 時に textlint が失敗して commit できないことが確認できた  
+
+- 参考
+  - [husky - npm](https://www.npmjs.com/package/husky)
+  - [Prettier 入門 ～ESLintとの違いを理解して併用する～ - Qiita](https://qiita.com/soarflat/items/06377f3b96964964a65d)
 
