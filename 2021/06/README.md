@@ -28,6 +28,7 @@
     - [2021/06/23 Wed](#20210623-wed)
     - [2021/06/24 Thu](#20210624-thu)
     - [2021/06/25 Fri](#20210625-fri)
+    - [2021/06/26 Sat](#20210626-sat)
 
 <!-- /TOC -->
 
@@ -1513,4 +1514,158 @@ git merge origin/feature_hogefuga
 
 これが正しいお作法なのかは正直怪しい？  
 が origin にプッシュしていない時などの課題はありそう  
+
+
+## 2021/06/26 Sat
+
+git reset オプション指定時の挙動を確認する  
+
+昨日の続き  
+同期から hard だとコード消えるから soft が良いよというアドバイスをもらった  
+
+各種挙動を見てみる  
+
+差分をこのような状態にして  
+
+```sh
+$ git diff README.md
+diff --git a/README.md b/README.md
+index cae421a..a1d66fc 100644
+--- a/README.md
++++ b/README.md
+@@ -15,3 +15,7 @@ $ yarn lint
+ 
+ $ yarn lint:fix
+ ```
++
++## Add Test
++
++追加してみる  
+```
+
+```sh
+$ git status
+On branch feature/add_2021-06-26
+Your branch is up-to-date with 'origin/feature/add_2021-06-26'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+コミットをした  
+
+```sh
+$ git log --oneline | head -n 3
+69684f3 test
+5c47eb5 #55
+a9333e3 Merge pull request #54 from honyanya/feature/add_2021-06-25
+```
+
+まずは soft オプションを付与して実施してみる  
+
+```sh
+$ git reset --soft 5c47eb5
+
+$ git log --oneline | head -n 3
+5c47eb5 #55
+a9333e3 Merge pull request #54 from honyanya/feature/add_2021-06-25
+5ccfa55 [feature/add_2021-06-25][add] Git でコミットを戻しすぎた場合の対応
+```
+
+status で見ると add はしているが commit していない状態  
+
+```sh
+$ git status
+On branch feature/add_2021-06-26
+Your branch is up-to-date with 'origin/feature/add_2021-06-26'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.md
+```
+
+再度コミットして、次は mixed オプションを実行してみる  
+オプション指定無しでも mixed になる  
+
+```sh
+$ git reset --mixed 5c47eb5
+Unstaged changes after reset:
+M       README.md
+
+$ git log --oneline | head -n 3
+5c47eb5 #55
+a9333e3 Merge pull request #54 from honyanya/feature/add_2021-06-25
+5ccfa55 [feature/add_2021-06-25][add] Git でコミットを戻しすぎた場合の対応
+```
+
+status で見ると add もしていない状況  
+diff で差分も出てくる  
+
+```sh
+$ git status
+On branch feature/add_2021-06-26
+Your branch is up-to-date with 'origin/feature/add_2021-06-26'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git diff README.md
+diff --git a/README.md b/README.md
+index cae421a..a1d66fc 100644
+--- a/README.md
++++ b/README.md
+@@ -15,3 +15,7 @@ $ yarn lint
+ 
+ $ yarn lint:fix
+ ```
++
++## Add Test
++
++追加してみる  
+```
+
+再度コミットして、最後は hard オプションを実行してみる  
+
+```sh
+$ git reset --hard 5c47eb5
+HEAD is now at 5c47eb5 #55
+
+$ git log --oneline | head -n 3
+5c47eb5 #55
+a9333e3 Merge pull request #54 from honyanya/feature/add_2021-06-25
+5ccfa55 [feature/add_2021-06-25][add] Git でコミットを戻しすぎた場合の対応
+```
+
+変更内容も無くなるため、 status でも変更がない状態になる  
+
+```sh
+$ git status
+On branch feature/add_2021-06-26
+Your branch is up-to-date with 'origin/feature/add_2021-06-26'.
+nothing to commit, working tree clean
+```
+
+まとめるとこんな感じ  
+hard は変更内容が無くなるため、割と注意が必要  
+ちょっと直したい時には soft を使うと良い  
+コミットしてしまってコメントなど直したい場合は mixed （オプション指定無し）で  
+
+| オプション | 取り消し対象 | 挙動 | 実施後の操作 |
+| --- | --- | --- | --- |
+| soft | commit | `./README.md` の変更は add(stage) された状態 | 修正して commit する |
+| mixed | add(stage), commit | `./README.md` の変更は残るが add(stage) されてない状態 | 修正して add する |
+| hard | add(stage), coomit, file | `./README.md` の変更が無くなる | 修正したい内容を 1 からやり直す |
+
+- 参考
+  - [困ったときの git reset コマンド集 - Qiita](https://qiita.com/ChaaaBooo/items/459d5417ff4cf815abce)
+  - [git resetでどのオプション(hard, mixed, soft)を指定すべきか、シチュエーション別に分けてみる - Qiita](https://qiita.com/kmagai/items/6b4bfe3fddb00769aec4)
+  - [第6話 git reset 3種類をどこよりもわかりやすい図解で解説！【連載】マンガでわかるGit ～コマンド編～ - itstaffing エンジニアスタイル](https://www.r-staffing.co.jp/engineer/entry/20191129_1)
 
