@@ -1662,7 +1662,7 @@ hard は変更内容が無くなるため、割と注意が必要
 | --- | --- | --- | --- |
 | soft | commit | `./README.md` の変更は add(stage) された状態 | 修正して commit する |
 | mixed | add(stage), commit | `./README.md` の変更は残るが add(stage) されてない状態 | 修正して add する |
-| hard | add(stage), coomit, file | `./README.md` の変更が無くなる | 修正したい内容を 1 からやり直す |
+| hard | file, add(stage), coomit | `./README.md` の変更が無くなる | 修正したい内容を 1 からやり直す |
 
 - 参考
   - [困ったときの git reset コマンド集 - Qiita](https://qiita.com/ChaaaBooo/items/459d5417ff4cf815abce)
