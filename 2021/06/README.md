@@ -29,6 +29,7 @@
     - [2021/06/24 Thu](#20210624-thu)
     - [2021/06/25 Fri](#20210625-fri)
     - [2021/06/26 Sat](#20210626-sat)
+    - [2021/06/27 Sun](#20210627-sun)
 
 <!-- /TOC -->
 
@@ -1668,4 +1669,44 @@ hard は変更内容が無くなるため、割と注意が必要
   - [困ったときの git reset コマンド集 - Qiita](https://qiita.com/ChaaaBooo/items/459d5417ff4cf815abce)
   - [git resetでどのオプション(hard, mixed, soft)を指定すべきか、シチュエーション別に分けてみる - Qiita](https://qiita.com/kmagai/items/6b4bfe3fddb00769aec4)
   - [第6話 git reset 3種類をどこよりもわかりやすい図解で解説！【連載】マンガでわかるGit ～コマンド編～ - itstaffing エンジニアスタイル](https://www.r-staffing.co.jp/engineer/entry/20191129_1)
+
+
+## 2021/06/27 Sun
+
+Gatsby Hello world!  
+
+Hello world! までの記録  
+
+`gatsby-cli` をインストール  
+
+```sh
+$ yarn global add gatsby-cli
+```
+
+バージョン確認  
+
+```sh
+$ gatsby --version
+Gatsby CLI version: 3.8.0
+```
+
+作成  
+
+```sh
+$ gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
+```
+
+起動  
+
+```sh
+$ cd hello-world
+$ gatsby develop
+```
+
+localhost:8000 で確認  
+Hello world! が出力された  
+
+- 参考
+  - [Tutorial | Gatsby](https://www.gatsbyjs.com/docs/tutorial/)
+  - [Gatsby公式チュートリアルやったよ - Qiita](https://qiita.com/irico/items/cf87eb29ecaf7e135fcd)
 
