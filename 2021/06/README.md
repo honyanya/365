@@ -30,6 +30,7 @@
     - [2021/06/25 Fri](#20210625-fri)
     - [2021/06/26 Sat](#20210626-sat)
     - [2021/06/27 Sun](#20210627-sun)
+    - [2021/06/28 Mon](#20210628-mon)
 
 <!-- /TOC -->
 
@@ -1709,4 +1710,28 @@ Hello world! が出力された
 - 参考
   - [Tutorial | Gatsby](https://www.gatsbyjs.com/docs/tutorial/)
   - [Gatsby公式チュートリアルやったよ - Qiita](https://qiita.com/irico/items/cf87eb29ecaf7e135fcd)
+
+
+## 2021/06/28 Mon
+
+MySQL のプロンプトを変更する  
+
+様々な環境を触ってて、 デフォルトの `mysql>` だと誤りが発生するためプロンプトを変更する  
+
+`MYSQL_PS1` を変更すれば OK  
+
+```sh
+$ printenv MYSQL_PS1
+\u@\h [\d] mysql> 
+```
+
+こんな感じのプロンプトになる  
+
+```sh
+$ mysql -uadmin -p -h127.0.0.1 -Dtest_db
+admin@127.0.0.1 [test_db] mysql> 
+```
+
+- 参考
+  - [MySQL :: MySQL 8.0 リファレンスマニュアル :: 4.5.1.2 mysql クライアントコマンド](https://dev.mysql.com/doc/refman/8.0/ja/mysql-commands.html)
 
