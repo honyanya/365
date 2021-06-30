@@ -32,6 +32,7 @@
     - [2021/06/27 Sun](#20210627-sun)
     - [2021/06/28 Mon](#20210628-mon)
     - [2021/06/29 Tue](#20210629-tue)
+    - [2021/06/30 Wed](#20210630-wed)
 
 <!-- /TOC -->
 
@@ -1769,4 +1770,63 @@ admin@127.0.0.1 [test_db] mysql>
 
 - 参考
   - [MySQL Group Replication 素振り - ngyukiの日記](https://ngyuki.hatenablog.com/entry/2018/07/02/072619)
+
+
+## 2021/06/30 Wed
+
+ローカルに追従されているリモートブランチを削除する  
+
+GitHub でリモートブランチを削除していたが、ローカルブランチでは残っている  
+
+Tab 補完での結果  
+
+```
+$ git branch 
+FETCH_HEAD                       origin/feature/add_2021-05-26    origin/feature/add_2021-05-30   
+HEAD                             origin/feature/add_2021-05-27    origin/feature/add_2021-05-31   
+ORIG_HEAD                        origin/feature/add_2021-05-28    origin/master
+master                           origin/feature/add_2021-05-29
+```
+
+リモート込のブランチ一覧  
+
+```
+$ git branch -a
+* master
+  remotes/origin/feature/add_2021-05-26
+  remotes/origin/feature/add_2021-05-27
+  remotes/origin/feature/add_2021-05-28
+  remotes/origin/feature/add_2021-05-29
+  remotes/origin/feature/add_2021-05-30
+  remotes/origin/feature/add_2021-05-31
+  remotes/origin/master
+```
+
+`git remote update -p` で更新することができる  
+そういや昔は `git fetch origin` ではなく `git remote update -p` を多用していた  
+故にリモートブランチ多いなとは思っていた  
+
+```
+$ git remote update -p
+Fetching origin
+From github.com:honyanya/365
+ - [deleted]         (none)     -> origin/feature/add_2021-05-26
+ - [deleted]         (none)     -> origin/feature/add_2021-05-27
+ - [deleted]         (none)     -> origin/feature/add_2021-05-28
+ - [deleted]         (none)     -> origin/feature/add_2021-05-29
+ - [deleted]         (none)     -> origin/feature/add_2021-05-30
+ - [deleted]         (none)     -> origin/feature/add_2021-05-31
+ - [deleted]         (none)     -> origin/feature/add_2021-06-01
+ - [deleted]         (none)     -> origin/feature/add_2021-06-02
+ - [deleted]         (none)     -> origin/feature/add_2021-06-03
+ - [deleted]         (none)     -> origin/feature/add_2021-06-04
+ - [deleted]         (none)     -> origin/feature/clean_directory
+ - [deleted]         (none)     -> origin/feature/fix_2021-06-02
+```
+
+ちなみに `git fetch origin -p` でも OK  
+`remote update` と `fetch` の違いをちゃんとは理解できてなさそうだ  
+
+- 参考
+  - [Git超絶まとめ - Qiita](https://qiita.com/masashi127/items/2e103c3fba9d1b058961)
 
