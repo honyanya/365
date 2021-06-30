@@ -31,6 +31,7 @@
     - [2021/06/26 Sat](#20210626-sat)
     - [2021/06/27 Sun](#20210627-sun)
     - [2021/06/28 Mon](#20210628-mon)
+    - [2021/06/29 Tue](#20210629-tue)
 
 <!-- /TOC -->
 
@@ -1734,4 +1735,38 @@ admin@127.0.0.1 [test_db] mysql>
 
 - 参考
   - [MySQL :: MySQL 8.0 リファレンスマニュアル :: 4.5.1.2 mysql クライアントコマンド](https://dev.mysql.com/doc/refman/8.0/ja/mysql-commands.html)
+
+
+## 2021/06/29 Tue
+
+docker-compose の MySQL プロンプトを変更する  
+
+昨日の続き  
+docker-compose で MySQL を使用した場合、ホストの MYSQL_PS1 が使用されなかった  
+
+```sh
+$ docker-compose exec mysql mysql -uadmin -p -h127.0.0.1 -Dtest_db
+mysql> 
+```
+
+`docker-compose.yml` の環境変数として MYSQL_PS1 を設定して上がれば OK  
+
+```yaml
+MYSQL_PS1: '\u@\h [\d] mysql> '
+```
+
+これでコンテナ再起動すると反映される  
+
+```sh
+$ docker-compose up -d mysql
+Starting sample_mysql_1
+```
+
+```sh
+$ docker-compose exec mysql mysql -uadmin -p -h127.0.0.1 -Dtest_db
+admin@127.0.0.1 [test_db] mysql> 
+```
+
+- 参考
+  - [MySQL Group Replication 素振り - ngyukiの日記](https://ngyuki.hatenablog.com/entry/2018/07/02/072619)
 
