@@ -5,6 +5,7 @@
 - [2021/07](#202107)
     - [2021/07/01 Thu](#20210701-thu)
     - [2021/07/02 Fri](#20210702-fri)
+    - [2021/07/03 Sat](#20210703-sat)
 
 <!-- /TOC -->
 
@@ -117,4 +118,38 @@ value2
 
 - 参考
   - [jq コマンドを使う日常のご紹介 - Qiita](https://qiita.com/takeshinoda@github/items/2dec7a72930ec1f658af)
+
+
+## 2021/07/03 Sat
+
+GitHub API で PR 作成  
+
+1 ヶ月以上手動で作成していたが、せっかくなので GitHub API 経由で PR を作成してみることにした  
+
+まずは Token の設定を変更する  
+[Personal Access Tokens](https://github.com/settings/tokens) にアクセスして `public_repo` にチェックを入れた  
+
+こんな感じで環境変数を用意して  
+
+```sh
+export GITHUB_TOKEN=
+export GITHUB_USER=
+export GITHUB_REPOSITORY=
+export GITHUB_FEATURE_BRANCH=
+export GITHUB_PR_TITLE=
+```
+
+curl で叩けば OK  
+
+```sh
+curl -H "Authorization: token $GITHUB_TOKEN" \
+  "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPOSITORY/pulls" \
+  -d "{\"title\": \"$GITHUB_PR_TITLE\", \"head\": \"$GITHUB_USER:$GITHUB_FEATURE_BRANCH\", \"base\": \"main\"}"
+```
+
+push 後にタイトルとかは修正するが、本日分の PR は API で作成を行った  
+https://github.com/honyanya/365/pull/63  
+
+- 参考
+  - [github で自分のリポジトリに pull request を投げたい - げっとシステムログ](https://www.getto.systems/entry/2016/04/20/192727)
 
