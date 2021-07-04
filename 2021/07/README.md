@@ -6,6 +6,7 @@
     - [2021/07/01 Thu](#20210701-thu)
     - [2021/07/02 Fri](#20210702-fri)
     - [2021/07/03 Sat](#20210703-sat)
+    - [2021/07/04 Sun](#20210704-sun)
 
 <!-- /TOC -->
 
@@ -152,4 +153,52 @@ https://github.com/honyanya/365/pull/63
 
 - 参考
   - [github で自分のリポジトリに pull request を投げたい - げっとシステムログ](https://www.getto.systems/entry/2016/04/20/192727)
+
+
+## 2021/07/04 Sun
+
+GitHub API でブランチ作成  
+
+昨日の続き  
+今日は branch を GitHub API で作成する  
+
+まずはこんな感じでリビジョンハッシュを取得する  
+
+```sh
+curl -H "Authorization: token ${GITHUB_TOKEN}" \
+  "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs/heads/${BASE_BRANCH}" -s \
+  | jq -r '.[].object.sha'
+```
+
+がこの方法だとブランチの数だけリビジョンハッシュが出力されてしまう  
+なので jq をちょこっとだけ修正して、 main ブランチのリビジョンハッシュを取得できるようにする  
+
+```sh
+curl -H "Authorization: token ${GITHUB_TOKEN}" \
+  "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs/heads/${BASE_BRANCH}" -s \
+  | jq -r '.[] | select(.ref == "refs/heads/main") | .object.sha'
+```
+
+このあとの処理でこのリビジョンハッシュは使うため、変数として用意しておく  
+
+```sh
+github_hash=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
+  "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs/heads/${BASE_BRANCH}" -s \
+  | jq -r '.[] | select(.ref == "refs/heads/main") | .object.sha')
+
+echo $github_hash
+```
+
+準備は完了  
+下記のように API を叩くことでブランチが作成できる
+
+```sh
+curl -X POST \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -d "{\"ref\": \"refs/heads/${GITHUB_FEATURE_BRANCH}\", \"sha\":\"${github_hash}\"}" \
+  https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs
+```
+
+- 参考
+  - [GitHub APIを使ってブランチを新規作成する - ぷらすのブログ](https://blog.p1ass.com/posts/create-branch-using-github-api/)
 
