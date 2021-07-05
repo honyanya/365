@@ -7,6 +7,7 @@
     - [2021/07/02 Fri](#20210702-fri)
     - [2021/07/03 Sat](#20210703-sat)
     - [2021/07/04 Sun](#20210704-sun)
+    - [2021/07/05 Mon](#20210705-mon)
 
 <!-- /TOC -->
 
@@ -201,4 +202,49 @@ curl -X POST \
 
 - 参考
   - [GitHub APIを使ってブランチを新規作成する - ぷらすのブログ](https://blog.p1ass.com/posts/create-branch-using-github-api/)
+
+
+## 2021/07/05 Mon
+
+GitHub API を使って、 GitHub の画面を触らずに執筆ができる状態にした  
+
+昨日の続き  
+昨日までの内容を元にスクリプトを繋ぎ合わせてみた  
+これでブランチ作成や PR 作成もブラウザを使わずに作成できることが可能になった  
+執筆開始までのリードタイム削減に繋がった  
+
+```sh
+## 環境変数の設定（未入力値は設定する）
+export GITHUB_TOKEN=
+export GITHUB_USER=
+export GITHUB_REPOSITORY=
+export GITHUB_BASE_BRANCH=main
+export GITHUB_FEATURE_BRANCH="feature/add_$(date "+%Y-%m-%d")"
+export GITHUB_PR_TITLE=
+export GITHUB_PR_DESCRIPTION="$(date "+%Y/%m/%d") 分"
+
+## リビジョンハッシュの取得
+github_hash=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
+  "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs/heads/${BASE_BRANCH}" -s \
+  | jq -r '.[] | select(.ref == "refs/heads/main") | .object.sha')
+
+## リモートブランチの作成
+curl -X POST \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -d "{\"ref\": \"refs/heads/${GITHUB_FEATURE_BRANCH}\", \"sha\":\"${github_hash}\"}" \
+  https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/git/refs
+
+## ローカルブランチを作成し、空コミットをプッシュする
+git fetch origin
+git checkout -b ${GITHUB_FEATURE_BRANCH} origin/${GITHUB_FEATURE_BRANCH}
+git commit --allow-empty -m "${GITHUB_PR_TITLE}"
+git push origin ${GITHUB_FEATURE_BRANCH}
+
+## PR の作成
+curl -H "Authorization: token ${GITHUB_TOKEN}" \
+  "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPOSITORY}/pulls" \
+  -d "{\"title\": \"${GITHUB_PR_TITLE}\", \"body\": \"${GITHUB_PR_DESCRIPTION}\", \"head\": \"${GITHUB_USER}:${GITHUB_FEATURE_BRANCH}\", \"base\": \"${GITHUB_BASE_BRANCH}\"}"
+```
+
+同期から CLI ツール触ってみたら？という提案が合ったので明日はそれを触ろうかな  
 
