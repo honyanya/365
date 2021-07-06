@@ -8,6 +8,7 @@
     - [2021/07/03 Sat](#20210703-sat)
     - [2021/07/04 Sun](#20210704-sun)
     - [2021/07/05 Mon](#20210705-mon)
+    - [2021/07/06 Tue](#20210706-tue)
 
 <!-- /TOC -->
 
@@ -247,4 +248,57 @@ curl -H "Authorization: token ${GITHUB_TOKEN}" \
 ```
 
 同期から CLI ツール触ってみたら？という提案が合ったので明日はそれを触ろうかな  
+
+
+## 2021/07/06 Tue
+
+GitHub CLI を触る  
+
+昨日の続き  
+昨日までは GitHub API でブランチなどを作成していたが今日からは [GitHub CLI](https://cli.github.com/) を触ってみることにする  
+
+インストール  
+homebrew でインストールをした  
+
+```sh
+$ brew install gh
+
+$ gh --version
+gh version 1.12.1 (2021-07-01)
+https://github.com/cli/cli/releases/tag/v1.12.1
+```
+
+まずは GitHub CLI でログインする  
+
+```sh
+$ gh auth login
+```
+
+Github.com や SSH などを選択して進める  
+Token を入力すると下記エラーが出た  
+
+```sh
+? Paste your authentication token:
+error validating token: missing required scopes 'repo', 'read:org'
+```
+
+Token の権限が足りていないため、[Personal Access Tokens](https://github.com/settings/tokens) から足りていない権限を追加を行う  
+再度実行して、 Token 入力後も問題無く通過した  
+
+```sh
+$ gh auth login
+...
+insufficient OAuth scopes
+```
+
+GitHub CLI が使えるようになったので動作確認でこのリポジトリの README を見てみる  
+
+```sh
+$ gh repo view honyanya/365
+```
+
+`gh repo view [repository]` で見れる  
+
+- 参考
+  - [GitHub CLI 1.0 がリリースされたので一通り触ってみる - michimani.net](https://michimani.net/post/development-get-started-to-use-github-cli/)
 
