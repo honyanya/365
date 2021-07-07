@@ -9,6 +9,7 @@
     - [2021/07/04 Sun](#20210704-sun)
     - [2021/07/05 Mon](#20210705-mon)
     - [2021/07/06 Tue](#20210706-tue)
+    - [2021/07/07 Wed](#20210707-wed)
 
 <!-- /TOC -->
 
@@ -301,4 +302,35 @@ $ gh repo view honyanya/365
 
 - 参考
   - [GitHub CLI 1.0 がリリースされたので一通り触ってみる - michimani.net](https://michimani.net/post/development-get-started-to-use-github-cli/)
+
+
+## 2021/07/07 Wed
+
+GitHub CLI で PR を作成する  
+
+非常に簡単にできた  
+リモートブランチ作成までは作成と空コミットを行って GitHub CLI のコマンドを実行する  
+
+カレントブランチが PR を作成したいブランチであることを確認する  
+
+```sh
+$ git branch
+* feature/add_2021-07-07
+  feature/add_ssg
+  main
+```
+
+`gh pr create` で作成ができる  
+Title, Body を入力すれば完了する  
+
+```sh
+$ gh pr create
+
+Creating pull request for feature/add_2021-07-07 into main in honyanya/365
+
+? Title #67
+? Body <Received>
+? What's next? Submit
+https://github.com/honyanya/365/pull/67
+```
 
