@@ -10,6 +10,7 @@
     - [2021/07/05 Mon](#20210705-mon)
     - [2021/07/06 Tue](#20210706-tue)
     - [2021/07/07 Wed](#20210707-wed)
+    - [2021/07/08 Thu](#20210708-thu)
 
 <!-- /TOC -->
 
@@ -333,4 +334,53 @@ Creating pull request for feature/add_2021-07-07 into main in honyanya/365
 ? What's next? Submit
 https://github.com/honyanya/365/pull/67
 ```
+
+
+## 2021/07/08 Thu
+
+GitHub CLI での入力を nano から vim にする  
+
+デフォルトだと nano が選択されてしまう  
+
+```sh
+$ gh pr create
+
+Creating pull request for feature/add_2021-07-08 into main in honyanya/365
+
+? Title #68
+? Body [(e) to launch nano, enter to skip]
+```
+
+`EDITOR=vim` を設定すれば vim で入力することが可能になる  
+
+```sh
+$ export EDITOR=vim
+$ printenv EDITOR
+vim
+```
+
+`(e) to launch nano` から `(e) to launch vim` になっている  
+
+```sh
+$ gh pr create
+
+Creating pull request for feature/add_2021-07-08 into main in honyanya/365
+
+? Title #68
+? Body [(e) to launch vim, enter to skip] 
+```
+
+実行時に `EDITOR=vim` を指定しても OK  
+
+```sh
+$ EDITOR=vim gh pr create
+
+Creating pull request for feature/add_2021-07-08 into main in honyanya/365
+
+? Title #68
+? Body [(e) to launch vim, enter to skip] 
+```
+
+- 参考
+  - [Ability to configure a default editor for use with `gh` · Issue #308 · cli/cli](https://github.com/cli/cli/issues/308)
 
