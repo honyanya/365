@@ -11,6 +11,7 @@
     - [2021/07/06 Tue](#20210706-tue)
     - [2021/07/07 Wed](#20210707-wed)
     - [2021/07/08 Thu](#20210708-thu)
+    - [2021/07/09 Fri](#20210709-fri)
 
 <!-- /TOC -->
 
@@ -383,4 +384,44 @@ Creating pull request for feature/add_2021-07-08 into main in honyanya/365
 
 - 参考
   - [Ability to configure a default editor for use with `gh` · Issue #308 · cli/cli](https://github.com/cli/cli/issues/308)
+
+
+## 2021/07/09 Fri
+
+365 で使う GitHub CLI の操作  
+
+昨日は PR を作ったので、他の操作も行ってみる  
+
+PR の編集  
+
+`gh pr edit [PR number]` で実行できる  
+`--title` でタイトルの変更  
+`--add-assignee` で担当者の追加
+
+```
+## タイトルの変更
+$ gh pr edit 68 --title "feature/add_2021-07-08][add] GitHub CLI での入力を nano から vim にする"
+https://github.com/honyanya/365/pull/68
+
+## 担当者の変更
+$ gh pr edit 68 --add-assignee @me
+https://github.com/honyanya/365/pull/68
+```
+
+PR のマージ  
+`gh pr merge [PR number]` で実行できる
+
+```
+$ gh pr merge 68
+? What merge method would you like to use? Create a merge commit
+? Delete the branch locally and on GitHub? Yes
+? What's next? Submit
+✓ Merged pull request #68 (feature/add_2021-07-08][add] GitHub CLI での入力を nano から vim にする)
+✓ Deleted branch feature/add_2021-07-08 and switched to branch main
+```
+
+- 参考
+  - 公式
+    - [gh pr edit | GitHub CLI](https://cli.github.com/manual/gh_pr_edit)
+    - [gh pr merge | GitHub CLI](https://cli.github.com/manual/gh_pr_merge)
 
