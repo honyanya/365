@@ -12,6 +12,7 @@
     - [2021/07/07 Wed](#20210707-wed)
     - [2021/07/08 Thu](#20210708-thu)
     - [2021/07/09 Fri](#20210709-fri)
+    - [2021/07/10 Sat](#20210710-sat)
 
 <!-- /TOC -->
 
@@ -424,4 +425,34 @@ $ gh pr merge 68
   - 公式
     - [gh pr edit | GitHub CLI](https://cli.github.com/manual/gh_pr_edit)
     - [gh pr merge | GitHub CLI](https://cli.github.com/manual/gh_pr_merge)
+
+
+## 2021/07/10 Sat
+
+jq で整形したものをファイルに書き込む  
+
+JSON を jq で整形してファイルに書き込みたかった  
+下記のコマンドでは失敗する  
+
+```sh
+$ echo '{"key1":"value1","key2":"value2"}' | jq > ./test.json
+jq - commandline JSON processor [version 1.5]
+Usage: jq [options] <jq filter> [file...]
+...
+```
+
+必ず要素の指定が必要  
+`.` を指定してあげればファイルに書き込み可能  
+
+```sh
+$ echo '{"key1":"value1","key2":"value2"}' | jq . > ./test.json
+$ cat ./test.json 
+{
+  "key1": "value1",
+  "key2": "value2"
+}
+```
+
+- 参考
+  - [jqの結果をファイルにリダイレクトする - Qiita](https://qiita.com/kazumax55/items/c6533523b617fededea2)
 
