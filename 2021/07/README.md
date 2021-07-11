@@ -13,6 +13,7 @@
     - [2021/07/08 Thu](#20210708-thu)
     - [2021/07/09 Fri](#20210709-fri)
     - [2021/07/10 Sat](#20210710-sat)
+    - [2021/07/11 Sun](#20210711-sun)
 
 <!-- /TOC -->
 
@@ -455,4 +456,32 @@ $ cat ./test.json
 
 - 参考
   - [jqの結果をファイルにリダイレクトする - Qiita](https://qiita.com/kazumax55/items/c6533523b617fededea2)
+
+
+## 2021/07/11 Sun
+
+curl: (3) Illegal characters found in URL の対応  
+
+ちょっと bash でスクリプトを書いてて  
+なぜか curl でエラーが出るようになってしまった  
+
+```sh
+$ ./sample_script.sh 
+curl: (3) Illegal characters found in URL
+```
+
+`./sample_script.sh` は環境変数を読み込むような形にしていた  
+
+```sh
+## 環境変数の読み込み
+. ./.env
+```
+
+原因は `./.env` が CRLF で保存されており、 `^M` が入っていることでした......  
+LF で保存してエラーが出ないことを確認した  
+
+環境変数の読み込みもシェルが違うと対応できないのでいろいろ工夫がありそうだった  
+
+- 参考
+  - [【Bash】curl: (3) Illegal characters found in URLというエラーの解消法 - (O+P)ut](https://www.mtioutput.com/entry/curl-illegal-error)
 
