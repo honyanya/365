@@ -14,6 +14,7 @@
     - [2021/07/09 Fri](#20210709-fri)
     - [2021/07/10 Sat](#20210710-sat)
     - [2021/07/11 Sun](#20210711-sun)
+    - [2021/07/12 Mon](#20210712-mon)
 
 <!-- /TOC -->
 
@@ -484,4 +485,42 @@ LF で保存してエラーが出ないことを確認した
 
 - 参考
   - [【Bash】curl: (3) Illegal characters found in URLというエラーの解消法 - (O+P)ut](https://www.mtioutput.com/entry/curl-illegal-error)
+
+
+## 2021/07/12 Mon
+
+bash で ! を出力する  
+
+bash で ! は最新のコマンドが実行される  
+ヒストリ展開とも呼ばれてるみたい  
+なので純粋に ! を使うことができない  
+
+```sh
+$ echo "!"
+bash: !: event not found
+```
+
+例えば hello world! と出力しても ! がヒストリが参照されこのような実行になってしまった  
+
+```sh
+$ echo "hello world!"
+echo "hello world"
+hello world
+```
+
+解決策は `set +H` で機能を無効化することができる  
+
+```sh
+$ set +H
+
+$ echo "!"
+!
+
+$ echo "hello world!"
+hello world!
+```
+
+- 参考
+  - [command line - -bash: !": event not found - Stack Overflow](https://stackoverflow.com/questions/26443880/bash-event-not-found)
+  - [[Bash] ダブルクォートで囲んだコマンド置換中で!を使うとエラーになる（例: echo "$(echo '!')"） - Qiita](https://qiita.com/anqooqie/items/785f46a8cc5f10ba7abb)
 
