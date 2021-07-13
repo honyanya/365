@@ -15,6 +15,7 @@
     - [2021/07/10 Sat](#20210710-sat)
     - [2021/07/11 Sun](#20210711-sun)
     - [2021/07/12 Mon](#20210712-mon)
+    - [2021/07/13 Tue](#20210713-tue)
 
 <!-- /TOC -->
 
@@ -523,4 +524,26 @@ hello world!
 - 参考
   - [command line - -bash: !": event not found - Stack Overflow](https://stackoverflow.com/questions/26443880/bash-event-not-found)
   - [[Bash] ダブルクォートで囲んだコマンド置換中で!を使うとエラーになる（例: echo "$(echo '!')"） - Qiita](https://qiita.com/anqooqie/items/785f46a8cc5f10ba7abb)
+
+
+## 2021/07/13 Tue
+
+hub と gh  
+
+ちょっと前まで GitHub CLI である gh を使った内容を書いていた  
+数ヶ月前に hub コマンドについてもちょっと話をした記憶があって、リポジトリの状況を見てみることにした  
+
+hub  
+リポジトリ: [github/hub: A command-line tool that makes git easier to use with GitHub.](https://github.com/github/hub)  
+[hub 2.14.2](https://github.com/github/hub/releases/tag/v2.14.2) が latest で 2020/03/06 以降の更新は無い感じ  
+
+gh
+リポジトリ: [cli/cli: GitHub’s official command line tool](https://github.com/cli/cli)  
+[GitHub CLI 1.12.1](https://github.com/cli/cli/releases/tag/v1.12.1) が 13 日前にリリースされている  
+
+hub の情報は特に追わなくても大丈夫そう  
+gh を触っていこう  
+
+- 参考
+  - [よく使う "hub" コマンドを調べて "gh" コマンドに移行した - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2020/11/11/214450)
 
