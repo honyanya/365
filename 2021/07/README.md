@@ -16,6 +16,7 @@
     - [2021/07/11 Sun](#20210711-sun)
     - [2021/07/12 Mon](#20210712-mon)
     - [2021/07/13 Tue](#20210713-tue)
+    - [2021/07/14 Wed](#20210714-wed)
 
 <!-- /TOC -->
 
@@ -546,4 +547,54 @@ gh を触っていこう
 
 - 参考
   - [よく使う "hub" コマンドを調べて "gh" コマンドに移行した - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2020/11/11/214450)
+
+
+## 2021/07/14 Wed
+
+shell を切り替える  
+
+bash 以外にも zsh とか触っておいた方が良いかなと思ってて  
+なかなか重い腰を上げられていないが、切替方法をメモしておく  
+
+shell の一覧  
+
+```sh
+$ cat /etc/shells 
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+```
+
+zsh に切り替える  
+
+```sh
+$ /bin/zsh
+```
+
+永続的に切り替える  
+
+```sh
+$ chsh -s /bin/zsh
+```
+
+```sh
+% printenv SHELL
+/bin/zsh
+```
+
+戻す時も chsh で変更する  
+
+```sh
+$ chsh -s /bin/bash
+```
+
+- 参考
+  - [chsh | ログインシェルを変更するためのコマンド](https://bi.biopapyrus.jp/os/linux/chsh.html)
 
