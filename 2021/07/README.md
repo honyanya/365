@@ -17,6 +17,7 @@
     - [2021/07/12 Mon](#20210712-mon)
     - [2021/07/13 Tue](#20210713-tue)
     - [2021/07/14 Wed](#20210714-wed)
+    - [2021/07/15 Thu](#20210715-thu)
 
 <!-- /TOC -->
 
@@ -598,3 +599,19 @@ $ chsh -s /bin/bash
 - 参考
   - [chsh | ログインシェルを変更するためのコマンド](https://bi.biopapyrus.jp/os/linux/chsh.html)
 
+
+## 2021/07/15 Thu
+
+Oh My Zsh をインストールする  
+
+zsh で調べると Oh My Zsh の記事を多く見かけるので入れてみることにした  
+インストール用のシェルを実行するだけで OK  
+
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+プロンプトや補完がわかりやすくなる  
+
+- 参考
+  - [Oh My Zsh - a delightful & open source framework for Zsh](https://ohmyz.sh/)
