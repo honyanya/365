@@ -18,6 +18,7 @@
     - [2021/07/13 Tue](#20210713-tue)
     - [2021/07/14 Wed](#20210714-wed)
     - [2021/07/15 Thu](#20210715-thu)
+    - [2021/07/16 Fri](#20210716-fri)
 
 <!-- /TOC -->
 
@@ -615,3 +616,30 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 - 参考
   - [Oh My Zsh - a delightful & open source framework for Zsh](https://ohmyz.sh/)
+
+
+## 2021/07/16 Fri
+
+Mac の data コマンドで 1 日前を指定する  
+
+Mac だと -d オプションで指定ができなかったのでメモ  
+普段 CentOS などでは下記のように実行している  
+
+```sh
+$ date '+%Y-%m-%d' -d '1 day ago'
+2021-07-15
+```
+
+Mac だと -v オプションで指定する必要がある  
+
+```sh
+$ date -v -1d '+%Y-%m-%d'
+2021-07-15
+```
+
+どうやら Free BSD 系などの OS は -v で指定するみたい  
+
+- 参考
+  - [Macのdateコマンドで前日の日付を取得する - Qiita](https://qiita.com/___uhu/items/3c2312359da542cda163)
+  - [dateコマンドの使い方: UNIX/Linuxの部屋](http://x68000.q-e-d.net/~68user/unix/pickup?date#prgmemo-date-date-calc-bsd)
+
