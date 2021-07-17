@@ -19,6 +19,7 @@
     - [2021/07/14 Wed](#20210714-wed)
     - [2021/07/15 Thu](#20210715-thu)
     - [2021/07/16 Fri](#20210716-fri)
+    - [2021/07/17 Sat](#20210717-sat)
 
 <!-- /TOC -->
 
@@ -643,3 +644,31 @@ $ date -v -1d '+%Y-%m-%d'
   - [Macのdateコマンドで前日の日付を取得する - Qiita](https://qiita.com/___uhu/items/3c2312359da542cda163)
   - [dateコマンドの使い方: UNIX/Linuxの部屋](http://x68000.q-e-d.net/~68user/unix/pickup?date#prgmemo-date-date-calc-bsd)
 
+
+## 2021/07/17 Sat
+
+シェルスクリプトで標準入力  
+
+簡単なスクリプトを書いてて、標準出力した内容をスクリプトに渡したい  
+
+`cat -` と入力することで可能になる  
+入力したものがそのまま出力される  
+
+こんな感じのスクリプトを書いた  
+標準出力を渡して、文字を結合して出力を行うスクリプト  
+
+```sh
+#!/bin/sh
+
+readonly CONTENTS=$(cat -)
+echo $CONTENTS "is input value."
+```
+
+実行結果  
+
+```sh
+$ echo 'a b c d e' | ./sample_input.sh
+a b c d e is input value.
+```
+
+テキストファイルを整形して、スクリプトに渡して処理が可能になる  
