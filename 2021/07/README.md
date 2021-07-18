@@ -20,6 +20,7 @@
     - [2021/07/15 Thu](#20210715-thu)
     - [2021/07/16 Fri](#20210716-fri)
     - [2021/07/17 Sat](#20210717-sat)
+    - [2021/07/18 Sun](#20210718-sun)
 
 <!-- /TOC -->
 
@@ -672,3 +673,25 @@ a b c d e is input value.
 ```
 
 テキストファイルを整形して、スクリプトに渡して処理が可能になる  
+
+
+## 2021/07/18 Sun
+
+git でカレントブランチを取得  
+
+```sh
+$ git symbolic-ref --short HEAD
+feature/add_sgg_by_gatsby
+```
+
+echo での展開例  
+git commit 時にも応用できる  
+
+```sh
+$ echo "[$(git symbolic-ref --short HEAD)][add] commit messages"
+[feature/add_sgg_by_gatsby][add] commit messages
+```
+
+- 参考
+  - [get current branch name - Qiita](https://qiita.com/sugyan/items/83e060e895fa8ef2038c)
+
