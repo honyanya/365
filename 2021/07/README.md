@@ -21,6 +21,7 @@
     - [2021/07/16 Fri](#20210716-fri)
     - [2021/07/17 Sat](#20210717-sat)
     - [2021/07/18 Sun](#20210718-sun)
+    - [2021/07/19 Mon](#20210719-mon)
 
 <!-- /TOC -->
 
@@ -694,4 +695,24 @@ $ echo "[$(git symbolic-ref --short HEAD)][add] commit messages"
 
 - 参考
   - [get current branch name - Qiita](https://qiita.com/sugyan/items/83e060e895fa8ef2038c)
+
+
+## 2021/07/19 Mon
+
+favicon の画像を取得する  
+
+他に登録した favicon のアイコンをそのまま使いたかった  
+下記のようにすれば取得ができる  
+例として Google の favicon を取得している  
+
+https://www.google.com/s2/favicons?domain=https://www.google.com/
+
+ダウンロードしたい場合は wget で取得すれば OK
+
+```sh
+$ wget -O favicon.ico https://www.google.com/s2/favicons?domain=https://www.google.com/
+```
+
+- 参考
+  - [Faviconを取得する : すぐに忘れちゃうので覚書](http://blog.livedoor.jp/suguniwasurechau/archives/31961831.html)
 
