@@ -23,6 +23,7 @@
     - [2021/07/18 Sun](#20210718-sun)
     - [2021/07/19 Mon](#20210719-mon)
     - [2021/07/20 Tue](#20210720-tue)
+    - [2021/07/21 Wed](#20210721-wed)
 
 <!-- /TOC -->
 
@@ -769,4 +770,29 @@ date: unrecognized option: v
 
 - 参考
   - [date コマンドつらい - bearmini's blog](https://bearmini.hatenablog.com/entry/2017/06/19/115255)
+
+
+## 2021/07/21 Wed
+
+Base64 のエンコード・デコードをワンライナーで実行する  
+
+昔サーバ構築の際に教わったが忘れてしまっていたので  
+Perl を用いてワンライナーで実行することができるので楽  
+
+Base64 へエンコードする  
+
+```sh
+$ echo "user1:password1" | perl -MMIME::Base64 -0777 -ne 'print encode_base64($_)'
+dXNlcjE6cGFzc3dvcmQxCg==
+```
+
+Base64 からデコードする  
+
+```sh
+echo "dXNlcjE6cGFzc3dvcmQxCg==" | perl -MMIME::Base64 -0777 -ne 'print decode_base64($_)'
+user1:password1
+```
+
+- 参考
+  - [Perl の便利な 1 行コマンド](http://www.redout.net/data/oneliner.html)
 
