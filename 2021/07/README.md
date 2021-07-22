@@ -24,6 +24,7 @@
     - [2021/07/19 Mon](#20210719-mon)
     - [2021/07/20 Tue](#20210720-tue)
     - [2021/07/21 Wed](#20210721-wed)
+    - [2021/07/22 Thu](#20210722-thu)
 
 <!-- /TOC -->
 
@@ -795,4 +796,46 @@ user1:password1
 
 - 参考
   - [Perl の便利な 1 行コマンド](http://www.redout.net/data/oneliner.html)
+
+
+## 2021/07/22 Thu
+
+Gatsby.js 触る  
+
+gatsby cli あることが前提  
+
+`gatsby-starter-blog` テーマを使ってプロジェクトを作成する  
+
+```sh
+$ gatsby new gatsby-starter-blog https://github.com/gatsbyjs/gatsby-starter-blog
+```
+
+作成されたプロジェクトに移動する  
+
+```sh
+$ cd gatsby-starter-blog/
+```
+
+開発用環境を起動する  
+ホットリロードで自動更新される  
+実行後 http://localhost:8000/ で確認  
+
+```sh
+$ gatsby develop
+```
+
+デプロイ用に成果物をビルドする  
+ビルドされたファイルは `./public/` に配置される  
+
+```sh
+$ gatsby build
+```
+
+ビルドされた成果物を元にサーバを起動して動作確認を行う  
+デプロイ前に実施する  
+実行後 http://localhost:9000/ で確認  
+
+```sh
+$ gatsby serve
+```
 
