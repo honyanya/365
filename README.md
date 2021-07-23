@@ -12,8 +12,7 @@
 
 ## Contents
 
-TODO: DNS レコード反映後に URL を記述  
-
+TODO: ドメイン周り完了後、 URL を記述する  
 TODO: GitHub -> Gatsby へ以降  
 
 - [2021](./2021/README.md)
@@ -36,13 +35,15 @@ $ yarn lint:fix
 
 ```sh
 ## change env
+$ cp ./.env.sample ./.env
 $ vim ./.env
+$ cd scripts/
 
 ## start
-$ ./scripts/article-start.sh
+$ ./article-start.sh
 
 ## writing...
 
 ## end
-$ ./scripts/article-end.sh
+$ ./article-end.sh
 ```
