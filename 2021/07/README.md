@@ -27,6 +27,7 @@
     - [2021/07/22 Thu](#20210722-thu)
     - [2021/07/23 Fri](#20210723-fri)
     - [2021/07/24 Sat](#20210724-sat)
+    - [2021/07/25 Sun](#20210725-sun)
 
 <!-- /TOC -->
 
@@ -900,3 +901,29 @@ $ gatsby serve --prefix-paths
   - [Adding a Path Prefix | Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)
   - [reactjs - I want to "Gatsby Build" and deploy to a subdirectory - Stack Overflow](https://stackoverflow.com/questions/63276158/i-want-to-gatsby-build-and-deploy-to-a-subdirectory)
 
+
+## 2021/07/25 Sun
+
+vim じゃない方法でシンタックスハイライトをしたい  
+
+`vim -R xxx` 以外な方法でシンタックスハイライトをしたい  
+`ccat` ものがあるので使ってみた  
+
+インストール  
+
+```sh
+brew install ccat
+```
+
+確認する  
+
+```sh
+$ ccat --bg=dark ./test_helloworld.py
+```
+
+こんな感じで出力される  
+
+![ccat](./images/26/1_ccat.png)  
+
+- 参考
+  - [Linuxメモ : 「ccat」でcatをシンタックスハイライトする - もた日記](https://wonderwall.hatenablog.com/entry/2017/08/24/213000)
