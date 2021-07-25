@@ -26,6 +26,7 @@
     - [2021/07/21 Wed](#20210721-wed)
     - [2021/07/22 Thu](#20210722-thu)
     - [2021/07/23 Fri](#20210723-fri)
+    - [2021/07/24 Sat](#20210724-sat)
 
 <!-- /TOC -->
 
@@ -866,4 +867,36 @@ Filesystem      Size   Used  Avail Capacity  iused   ifree %iused  Mounted on
 isued / ifree がともに 0 で %iused が 100% になっている  
 確かにファイル数が多かったが、 isued / ifree がともに 0 になっていたのでどうしようかなと悩み中  
 また悩みが増えてきた  
+
+
+## 2021/07/24 Sat
+
+Gatsby をサブディレクトリにデプロイする  
+
+`gatsby-config.js` に `pathPrefix` を追加する  
+
+```js
+  ...
+  // sub directory
+  pathPrefix: `/tmp-2021`,
+}
+```
+
+ビルドに `--prefix-paths` オプションを追加する  
+
+```sh
+$ gatsby build --prefix-paths
+```
+
+ビルドした成果物の確認でも `--prefix-paths` オプションを追加して確認をする  
+
+```
+$ gatsby serve --prefix-paths
+```
+
+サブディレクトリにデプロイして動作確認をした  
+
+- 参考
+  - [Adding a Path Prefix | Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)
+  - [reactjs - I want to "Gatsby Build" and deploy to a subdirectory - Stack Overflow](https://stackoverflow.com/questions/63276158/i-want-to-gatsby-build-and-deploy-to-a-subdirectory)
 
