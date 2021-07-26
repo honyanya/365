@@ -28,6 +28,7 @@
     - [2021/07/23 Fri](#20210723-fri)
     - [2021/07/24 Sat](#20210724-sat)
     - [2021/07/25 Sun](#20210725-sun)
+    - [2021/07/26 Mon](#20210726-mon)
 
 <!-- /TOC -->
 
@@ -927,3 +928,31 @@ $ ccat --bg=dark ./test_helloworld.py
 
 - 参考
   - [Linuxメモ : 「ccat」でcatをシンタックスハイライトする - もた日記](https://wonderwall.hatenablog.com/entry/2017/08/24/213000)
+
+
+## 2021/07/26 Mon
+
+シェルスクリプトで標準入力 2  
+
+`read ` を使う  
+`-p` オプションでメッセージも出力可能  
+
+```sh
+$ vim ./input.sh
+#!/usr/bin/env sh
+
+read -p "input : " INPUT
+echo "output : ${INPUT}"
+```
+
+実行してみる  
+
+```sh
+$ ./input.sh
+input : hello
+output : hello
+```
+
+- 参考
+  - [Linux コマンド　【read編】 - Qiita](https://qiita.com/14fr049/items/71036e4e783fec07d520)
+
