@@ -29,6 +29,7 @@
     - [2021/07/24 Sat](#20210724-sat)
     - [2021/07/25 Sun](#20210725-sun)
     - [2021/07/26 Mon](#20210726-mon)
+    - [2021/07/28 Wed](#20210728-wed)
 
 <!-- /TOC -->
 
@@ -955,4 +956,57 @@ output : hello
 
 - 参考
   - [Linux コマンド　【read編】 - Qiita](https://qiita.com/14fr049/items/71036e4e783fec07d520)
+
+
+## 2021/07/28 Wed
+
+ls を 1 行で出力する  
+
+通常 ls を実行するとこんな感じで複数列で出力される  
+ファイル、ディレクトリ名の長さのやターミナル長さで良い感じに決まってる？  
+
+```sh
+$ ls ./2021/06/images/
+01	07	10	16	18	20
+```
+
+これを 1 列で表示したい場合  
+`-l` オプションなどを付けるが、付加情報がある  
+
+```sh
+$ ls -l ./2021/06/images/
+total 0
+drwxr-xr-x  5 user  staff  170  6  1 06:59 01
+drwxr-xr-x  8 user  staff  272  6 19 15:38 07
+drwxr-xr-x  5 user  staff  170  6 19 15:38 10
+drwxr-xr-x  3 user  staff  102  6 19 15:38 16
+drwxr-xr-x  3 user  staff  102  6 19 15:38 18
+drwxr-xr-x  4 user  staff  136  6 20 23:18 20
+```
+
+名前だけを 1 列で表示させたい場合  
+`-1` オプション（数字）を指定することで可能  
+
+```sh
+$ ls -1 ./2021/06/images/
+01
+07
+10
+16
+18
+20
+```
+
+ちなみに `-2` など `-n` ではなさそうだった  
+
+```sh
+$ ls -2 ./2021/06/images/
+ls: illegal option -- 2
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+```
+
+usage に書いてあるが最後に `1` が指定されている  
+
+- 参考
+  - [1ファイル1行ずつ表示する - アメリエフの技術ブログ](https://staffblog.amelieff.jp/entry/2017/07/11/090154)
 
