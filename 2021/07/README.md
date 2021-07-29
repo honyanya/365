@@ -30,6 +30,7 @@
     - [2021/07/25 Sun](#20210725-sun)
     - [2021/07/26 Mon](#20210726-mon)
     - [2021/07/27 Tue](#20210727-tue)
+    - [2021/07/28 Wed](#20210728-wed)
 
 <!-- /TOC -->
 
@@ -1009,4 +1010,53 @@ usage に書いてあるが最後に `1` が指定されている
 
 - 参考
   - [1ファイル1行ずつ表示する - アメリエフの技術ブログ](https://staffblog.amelieff.jp/entry/2017/07/11/090154)
+
+
+## 2021/07/28 Wed
+
+Docker for Mac の入力補完  
+
+homebrew でインストールした Docker なら  
+
+```sh
+$ ls -1 /Applications/Docker.app/Contents/Resources/etc/
+docker-compose.bash-completion
+docker-compose.zsh-completion
+docker-machine.bash-completion
+docker-machine.zsh-completion
+docker.bash-completion
+docker.zsh-completion
+```
+
+に補完用のファイルがあるのでシンボリックリンクを貼れば OK  
+
+```sh
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion $(brew --prefix)/etc/bash_completion.d/docker
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-machine
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-compose
+```
+
+これで補完ができるようになる  
+
+```sh
+$ docker
+build       exec        kill        port        save        system
+checkpoint  export      load        ps          search      tag
+commit      help        login       pull        secret      top
+container   history     logout      push        service     unpause
+cp          image       logs        rename      stack       update
+create      images      network     restart     start       version
+deploy      import      node        rm          stats       volume
+diff        info        pause       rmi         stop        wait
+events      inspect     plugin      run         swarm
+
+$ docker-compose
+build    down     kill     ps       rm       stop     version
+bundle   events   logs     pull     run      top
+config   exec     pause    push     scale    unpause
+create   help     port     restart  start    up
+```
+
+- 参考
+  - [Docker Desktop for Mac のタグ補完(Shell Completion) - Qiita](https://qiita.com/koudaiii/items/e5e1225e0ced16158d3e)
 
