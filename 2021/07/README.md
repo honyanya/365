@@ -31,6 +31,7 @@
     - [2021/07/26 Mon](#20210726-mon)
     - [2021/07/27 Tue](#20210727-tue)
     - [2021/07/28 Wed](#20210728-wed)
+    - [2021/07/29 Thu](#20210729-thu)
 
 <!-- /TOC -->
 
@@ -1059,4 +1060,56 @@ create   help     port     restart  start    up
 
 - 参考
   - [Docker Desktop for Mac のタグ補完(Shell Completion) - Qiita](https://qiita.com/koudaiii/items/e5e1225e0ced16158d3e)
+
+
+## 2021/07/29 Thu
+
+gh の入力補完(zsh はうまくいってない）  
+
+[公式](https://cli.github.com/manual/gh_completion)に乗っているのでそのとおりにやる  
+
+`~/.bashrc` に以下を記述した
+
+```sh
+eval "$(gh completion -s bash)"
+```
+
+読み込み後確認すると良い感じに補完できる  
+
+```sh
+$ source ~/.bashrc
+```
+
+```sh
+$ gh
+actions     auth        completion  help        release     secret
+alias       browse      config      issue       repo        ssh-key
+api         co          gist        pr          run         workflow
+
+$ gh pr
+checkout  close     create    edit      merge     reopen    status
+checks    comment   diff      list      ready     review    view
+```
+
+zsh も設定したがうまくいかない......  
+
+```sh
+$ gh completion -s zsh > /usr/local/share/zsh/site-functions/_gh
+```
+
+`~/.zshrc` に追記  
+
+```sh
+autoload -U compinit
+compinit -i
+```
+
+補完がこんな感じになる  
+素の zsh に戻してからやる必要があるとか？  
+
+```sh
+gh
+  -- a:c:t:i:o:n:s:	:L:e:a:r:n: :a:b:o:u:t: :w:o:r:k:i:n:g: :w:i:t:h: :G:i:t:
+  -- a:l:i:a:s:	:C:r:e:a:t:e: :c:o:m:m:a:n:d: :s:h:o:r:t:c:u:t:s
+```
 
