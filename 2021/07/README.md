@@ -32,6 +32,7 @@
     - [2021/07/27 Tue](#20210727-tue)
     - [2021/07/28 Wed](#20210728-wed)
     - [2021/07/29 Thu](#20210729-thu)
+    - [2021/07/30 Fri](#20210730-fri)
 
 <!-- /TOC -->
 
@@ -1112,4 +1113,85 @@ gh
   -- a:c:t:i:o:n:s:	:L:e:a:r:n: :a:b:o:u:t: :w:o:r:k:i:n:g: :w:i:t:h: :G:i:t:
   -- a:l:i:a:s:	:C:r:e:a:t:e: :c:o:m:m:a:n:d: :s:h:o:r:t:c:u:t:s
 ```
+
+## 2021/07/30 Fri
+
+jq で絞り込みをして別の JSON を作る  
+
+こんな JSON がある
+
+```json
+[
+  {
+    "key1": "value1a",
+    "key2": "value1b",
+    "key3": "value1c",
+    "key4": {
+      "subkey41": "subvalue1a",
+      "subkey42": "subvalue1b",
+      "subkey43": "subvalue1c"
+    }
+  },
+  {
+    "key1": "value2a",
+    "key2": "value2b",
+    "key3": "value2c",
+    "key4": {
+      "subkey41": "subvalue2a",
+      "subkey42": "subvalue2b",
+      "subkey43": "subvalue2c"
+    }
+  },
+  {
+    "key1": "value3a",
+    "key2": "value3b",
+    "key3": "value3c",
+    "key4": {
+      "subkey41": "subvalue3a",
+      "subkey42": "subvalue3b",
+      "subkey43": "subvalue3c"
+    }
+  }
+]
+```
+
+subkey 42 の値を取得したい場合は下記のように書く  
+
+```sh
+$ cat test.json | jq '.[].key4.subkey42'
+"subvalue1b"
+"subvalue2b"
+"subvalue3b"
+```
+
+配列にするならこんな感じ  
+
+```sh
+$ cat test.json | jq -r '. | [ .[].key4.subkey42 ] '
+[
+  "subvalue1b",
+  "subvalue2b",
+  "subvalue3b"
+]
+```
+
+key 名有りのオブジェクトにしたいならこんな感じ  
+
+```sh
+$ cat test.json | jq -r '. | [{ subkey42: .[].key4.subkey42 }]'
+[
+  {
+    "subkey42": "subvalue1b"
+  },
+  {
+    "subkey42": "subvalue2b"
+  },
+  {
+    "subkey42": "subvalue3b"
+  }
+]
+```
+
+- 参考
+  - [jqコマンドの基本的な使い方と便利なオプションまとめ | 瀬戸内の雲のように](https://www.setouchino.cloud/blogs/19)
 
