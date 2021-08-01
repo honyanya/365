@@ -33,6 +33,7 @@
     - [2021/07/28 Wed](#20210728-wed)
     - [2021/07/29 Thu](#20210729-thu)
     - [2021/07/30 Fri](#20210730-fri)
+    - [2021/07/31 Sat](#20210731-sat)
 
 <!-- /TOC -->
 
@@ -1194,4 +1195,53 @@ $ cat test.json | jq -r '. | [{ subkey42: .[].key4.subkey42 }]'
 
 - 参考
   - [jqコマンドの基本的な使い方と便利なオプションまとめ | 瀬戸内の雲のように](https://www.setouchino.cloud/blogs/19)
+
+
+## 2021/07/31 Sat
+
+スーパーユーザ権限が必要なファイルにリダイレクトする  
+
+通常のリダイレクトはこんな感じ  
+
+```sh
+$ touch test.md
+$ echo "# test"  >> test.md
+$ cat test.md
+# test
+```
+
+これをスーパーユーザが必要なファイルで行うとすると `Permission denied` になる  
+
+```sh
+$ echo "192.168.56.101 development.local" >> /etc/hosts
+-bash: /etc/hosts: Permission denied
+
+$ sudo echo "192.168.56.101 development.local" >> /etc/hosts
+-bash: /etc/hosts: Permission denied
+```
+
+これを回避するために 2 つの方法があるみたい  
+まず 1 つ目が `sh -c` を使用する方法  
+
+```sh
+$ sudo sh -c 'echo "192.168.56.101 development.local" >> /etc/hosts'
+
+$ tail -n 2 /etc/hosts
+::1             localhost
+192.168.56.101 development.local
+```
+
+もう 1 つが `tee` を使用する方法  
+
+```sh
+$ echo "192.168.56.101 development.local" | sudo tee -a /etc/hosts
+192.168.56.101 development.local
+
+$ tail -n 2 /etc/hosts
+::1             localhost
+192.168.56.101 development.local
+```
+
+- 参考
+  - [sudoでリダイレクトをしたいとき - Y's note](https://yut.hatenablog.com/entry/20111013/1318436872)
 
