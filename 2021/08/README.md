@@ -5,6 +5,7 @@
 - [2021/08](#202108)
     - [2021/08/01 Sun](#20210801-sun)
     - [2021/08/02 Mon](#20210802-mon)
+    - [2021/08/03 Tue](#20210803-tue)
 
 <!-- /TOC -->
 
@@ -50,4 +51,66 @@ $ aws s3 cp s3://[bucket_name]/sample.gz - | zgrep 'hogefuga'
 
 - 参考
   - [AWS S3上ファイルの中身をLinuxコマンドだけで超絶簡単に確認する方法 - Qiita](https://qiita.com/mimimi-no-sesese/items/0e7955172ab53ccbbde1)
+
+
+## 2021/08/03 Tue
+
+React チュートリアルを触る  
+
+Gatsby.js を触ったがいまいち理解ができていないので、大元の React.js を触ってみることにした  
+
+Node.js インストールは済み  
+
+まずは[ここ](https://ja.reactjs.org/docs/create-a-new-react-app.html#create-react-app)を見てローカルに React の環境を作る  
+
+```sh
+$ npx create-react-app my-app
+$ cd my-app/
+$ yarn start
+```
+
+http://localhost:3000/ にアクセスすると以下のように React のロゴが回っている  
+
+![1_yarn_start](./images/03/1_yarn_start.png)  
+
+`Edit src/App.js and save to reload.` とあるので見てみる  
+
+`App()` の中の HTML を返している  
+
+```js
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+```
+
+返す HTML をシンプルにする  
+
+```js
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello World!</h1>
+    </div>
+  );
+}
+```
+
+これで Hello World! が出力される  
 
