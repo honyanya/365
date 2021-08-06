@@ -151,11 +151,11 @@ GitHub で PR が閉じて Reopen もできない
 
 rebase 後に force push すると勝手に PR が閉じられて Reopen もできなくなった  
 
-![1_github_pr](./images/1_github_pr.png)
+![1_github_pr](./images/05/1_github_pr.png)
 
 `There are no new commits on the feature/xxx branch.` と書いてあった  
 （画像は撮り忘れた......）  
 
 新しいコミットを push することで Reopen することができた  
-![2_github_pr](./images/2_github_pr.png)  
+![2_github_pr](./images/05/2_github_pr.png)  
 
