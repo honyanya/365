@@ -7,6 +7,7 @@
     - [2021/08/02 Mon](#20210802-mon)
     - [2021/08/03 Tue](#20210803-tue)
     - [2021/08/04 Wed](#20210804-wed)
+    - [2021/08/05 Thu](#20210805-thu)
 
 <!-- /TOC -->
 
@@ -139,4 +140,22 @@ $ cd ..
 ![1_board](./images/04/1_board.png)  
 
 ローカルでチュートリアルできる準備が整ったので写経をしていく  
+
+
+## 2021/08/05 Thu
+
+GitHub で PR が閉じて Reopen もできない  
+
+この 365 は PR を通して行っている  
+ブランチ作成、 PR 作成など、複数でやっている  
+
+rebase 後に force push すると勝手に PR が閉じられて Reopen もできなくなった  
+
+![1_github_pr](./images/1_github_pr.png)
+
+`There are no new commits on the feature/xxx branch.` と書いてあった  
+（画像は撮り忘れた......）  
+
+新しいコミットを push することで Reopen することができた  
+![2_github_pr](./images/2_github_pr.png)  
 
