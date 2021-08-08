@@ -8,6 +8,7 @@
     - [2021/08/03 Tue](#20210803-tue)
     - [2021/08/04 Wed](#20210804-wed)
     - [2021/08/05 Thu](#20210805-thu)
+    - [2021/08/06 Fri](#20210806-fri)
 
 <!-- /TOC -->
 
@@ -158,4 +159,41 @@ rebase 後に force push すると勝手に PR が閉じられて Reopen もで�
 
 新しいコミットを push することで Reopen することができた  
 ![2_github_pr](./images/05/2_github_pr.png)  
+
+
+## 2021/08/06 Fri
+
+HTML で同じ要素に存在しているテキストを取得する  
+
+半スクレイピング的なこと  
+よくまとめて情報取得したいが、ガッツリコードを書くほどでも無いってときは開発者ツールのコンソールを使用している  
+
+こんな HTML があったとして  
+
+```html
+<div class="contents">
+  <div class="hoge_name">eins</div>
+  <div class="hoge_name">zwei</div>
+  <div class="hoge_name">drei	</div>
+  <div class="hoge_name">vier</div>
+  <div class="hoge_name">fünf</div>
+</div>
+```
+
+こんな JS をブラウザのコンソールで実行すれば取得ができる  
+
+```js
+Array.from(document.getElementsByClassName('hoge_name')).map(element => element.innerText);
+// (5) ["eins", "zwei", "drei", "vier", "fünf"]
+```
+
+`getElementsByClassName` だと `HTMLCollection` のが返ってくる  
+
+```js
+document.getElementsByClassName('hoge_name');
+// HTMLCollection(5) [div.hoge_name, div.hoge_name, div.hoge_name, div.hoge_name, div.hoge_name]
+```
+
+そのため、 [Array.form](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from) メソッドを使用して、 Array インスタンスを生成する  
+[Array.prototype.map](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map) メソッドを使用して、各 Element のテキストのみを抽出している  
 
