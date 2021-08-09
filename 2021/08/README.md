@@ -9,6 +9,7 @@
     - [2021/08/04 Wed](#20210804-wed)
     - [2021/08/05 Thu](#20210805-thu)
     - [2021/08/06 Fri](#20210806-fri)
+    - [2021/08/07 Sat](#20210807-sat)
 
 <!-- /TOC -->
 
@@ -196,4 +197,147 @@ document.getElementsByClassName('hoge_name');
 
 そのため、 [Array.form](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from) メソッドを使用して、 Array インスタンスを生成する  
 [Array.prototype.map](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map) メソッドを使用して、各 Element のテキストのみを抽出している  
+
+
+## 2021/08/07 Sat
+
+pyenv で Python をインストールする  
+
+Python の新しいバージョンをインストールする  
+複数のバージョンを入れれるよう pyenv を使うことにした  
+
+特に設定は変えていないので、システムのデフォルトは Python2 になっている  
+
+```sh
+$ python --version
+Python 2.7.10
+
+$ which python
+/usr/bin/python
+```
+
+GitHub から clone して pyenv を入れる  
+
+```sh
+$ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(pyenv init )"' >> ~/.bashrc
+$ source ~/.bashrc
+
+$ pyenv --version
+pyenv 2.0.4-8-gd209e061
+
+$ pyenv install 3.9.6
+$ pyenv global 3.9.6
+```
+
+インストール時はこんな感じ  
+openssl と python をインストールしていた  
+
+```sh
+$ pyenv install 3.9.6
+Downloading openssl-1.1.1k.tar.gz...
+-> https://www.openssl.org/source/openssl-1.1.1k.tar.gz
+Installing openssl-1.1.1k...
+Installed openssl-1.1.1k to /Users/user/.pyenv/versions/3.9.6
+
+python-build: use readline from homebrew
+Downloading Python-3.9.6.tar.xz...
+-> https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz
+Installing Python-3.9.6...
+python-build: use readline from homebrew
+Installed Python-3.9.6 to /Users/user/.pyenv/versions/3.9.6
+```
+
+しかし Python のバージョンは変わらなかった  
+
+```sh
+$ python --version
+Python 2.7.10
+
+$ which python
+/usr/bin/python
+```
+
+`pyenv init` を実行してみた  
+
+```sh
+$ pyenv init
+
+# (The below instructions are intended for common
+# shell setups. See the README for more guidance
+# if they don't apply and/or don't work for you.)
+
+# Add pyenv executable to PATH and
+# enable shims by adding the following
+# to ~/.profile:
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# If your ~/.profile sources ~/.bashrc,
+# the lines need to be inserted before the part
+# that does that. See the README for another option.
+
+# If you have ~/.bash_profile, make sure that it
+# also executes the above lines -- e.g. by
+# copying them there or by sourcing ~/.profile
+
+# Load pyenv into the shell by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv init -)"
+
+# Make sure to restart your entire logon session
+# for changes to profile files to take effect.
+```
+
+`to ~/.profile:` に `eval "$(pyenv init --path)"` を書いてあるため修正してみた  
+
+```diff
+- eval "$(pyenv init -)"
++ eval "$(pyenv init --path)"
+```
+
+これでバージョンが変わった  
+
+```sh
+$ source ~/.bashrc
+
+$ which python
+/Users/user/.pyenv/shims/python
+
+$ python --version
+Python 3.9.6
+```
+
+Python3 の最新バージョン入れるまとめ  
+
+```
+$ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+$ source ~/.bashrc
+
+$ pyenv --version
+pyenv 2.0.4-8-gd209e061
+
+$ pyenv install 3.9.6
+$ pyenv global 3.9.6
+
+$ which python
+/Users/user/.pyenv/shims/python
+
+$ python --version
+Python 3.9.6
+```
+
+- 参考
+  - [pyenv globalでpythonのバージョンが切り替わらない(mac) - Qiita](https://qiita.com/jackbook1750/items/a8513a1cadd702d84651)
+  - [pyenvでPythonのバージョンを切り替えられない場合の対処法＋ - Qiita](https://qiita.com/TheHiro/items/88d885ef6a4d25ec3020)
 
