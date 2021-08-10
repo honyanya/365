@@ -201,7 +201,7 @@ document.getElementsByClassName('hoge_name');
 
 ## 2021/08/07 Sat
 
-pyenv で Python をインストールする  
+pyenv で Python のバージョンが切り替わらなかったときの対応  
 
 Python の新しいバージョンをインストールする  
 複数のバージョンを入れれるよう pyenv を使うことにした  
