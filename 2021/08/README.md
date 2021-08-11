@@ -10,6 +10,7 @@
     - [2021/08/05 Thu](#20210805-thu)
     - [2021/08/06 Fri](#20210806-fri)
     - [2021/08/07 Sat](#20210807-sat)
+    - [2021/08/08 Sun](#20210808-sun)
 
 <!-- /TOC -->
 
@@ -340,4 +341,38 @@ Python 3.9.6
 - 参考
   - [pyenv globalでpythonのバージョンが切り替わらない(mac) - Qiita](https://qiita.com/jackbook1750/items/a8513a1cadd702d84651)
   - [pyenvでPythonのバージョンを切り替えられない場合の対処法＋ - Qiita](https://qiita.com/TheHiro/items/88d885ef6a4d25ec3020)
+
+
+## 2021/08/08 Sun
+
+pip のバージョンを上げる  
+
+virtualenv を pip で入れた際にバージョンを上げてねというメッセージが出た  
+
+```sh
+$ pip install virtualenv
+...
+WARNING: You are using pip version 21.1.3; however, version 21.2.3 is available.
+You should consider upgrading via the '/Users/user/.pyenv/versions/3.9.6/bin/python3.9 -m pip install --upgrade pip' command.
+```
+
+現在の pip のバージョン  
+
+```sh
+$ pip --version
+pip 21.1.3 from /Users/user/.pyenv/versions/3.9.6/lib/python3.9/site-packages/pip (python 3.9)
+```
+
+バージョンを上げる  
+
+```sh
+$ python -m pip install --upgrade pip
+```
+
+21.1.3 -> 21.2.3 に上がったことを確認した  
+
+```
+$ pip --version
+pip 21.2.3 from /Users/user/.pyenv/versions/3.9.6/lib/python3.9/site-packages/pip (python 3.9)
+```
 
