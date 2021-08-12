@@ -11,6 +11,7 @@
     - [2021/08/06 Fri](#20210806-fri)
     - [2021/08/07 Sat](#20210807-sat)
     - [2021/08/08 Sun](#20210808-sun)
+    - [2021/08/09 Mon](#20210809-mon)
 
 <!-- /TOC -->
 
@@ -375,4 +376,31 @@ $ python -m pip install --upgrade pip
 $ pip --version
 pip 21.2.3 from /Users/user/.pyenv/versions/3.9.6/lib/python3.9/site-packages/pip (python 3.9)
 ```
+
+
+## 2021/08/09 Mon
+
+virtualenv をインストールする  
+
+pip でインストールする方法  
+
+```sh
+$ pip install virtualenv
+
+$ virtualenv --version
+virtualenv 20.7.0 from /Users/user/.pyenv/versions/3.9.6/lib/python3.9/site-packages/virtualenv/__init__.py
+```
+
+pyenv virtualenv をインストールする方法  
+
+```sh
+$ git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+$ source ~/.bashrc
+
+$ pyenv virtualenv --version
+pyenv-virtualenv 1.1.5 (virtualenv virtualenv 20.7.0 from /Users/user/.pyenv/versions/3.9.6/lib/python3.9/site-packages/virtualenv/__init__.py)
+```
+
+軽く調べると 3 系を使うなら venv を使うのが良いのかも  
 
