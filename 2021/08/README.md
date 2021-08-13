@@ -12,6 +12,7 @@
     - [2021/08/07 Sat](#20210807-sat)
     - [2021/08/08 Sun](#20210808-sun)
     - [2021/08/09 Mon](#20210809-mon)
+    - [2021/08/10 Tue](#20210810-tue)
 
 <!-- /TOC -->
 
@@ -403,4 +404,27 @@ pyenv-virtualenv 1.1.5 (virtualenv virtualenv 20.7.0 from /Users/user/.pyenv/ver
 ```
 
 軽く調べると 3 系を使うなら venv を使うのが良いのかも  
+
+
+## 2021/08/10 Tue
+
+brew update で最近見るメッセージ  
+
+最近 `brew update` をするとよく見かけるメッセージやエラー  
+なんだろうなと思いつつ、再実行してみると出なかったりする  
+
+頻度も低く、再実行で問題なかったので深くは見なかった  
+
+```sh
+$ brew update
+Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+
+$ brew update
+Error: Another active Homebrew update process is already in progress.
+Please wait for it to finish or terminate it to continue.
+
+$ brew update
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+```
 
