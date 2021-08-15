@@ -13,6 +13,7 @@
     - [2021/08/08 Sun](#20210808-sun)
     - [2021/08/09 Mon](#20210809-mon)
     - [2021/08/10 Tue](#20210810-tue)
+    - [2021/08/11 Wed](#20210811-wed)
 
 <!-- /TOC -->
 
@@ -427,4 +428,37 @@ Please wait for it to finish or terminate it to continue.
 $ brew update
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 ```
+
+## 2021/08/11 Wed
+
+Mac のバッテリー充放電回数を調べる  
+
+GUI だと Option を押しながら Apple マークを押すことで、 `この Mac について` が `システム情報` に変わる  
+
+システム情報から電源を選択することで見ることが可能  
+
+![1_system_profiler](./images/11/1_system_profiler.png)
+
+これをコマンドで見てみる  
+
+コマンドだと以下でシステム情報から見れる電源の情報が出力される  
+
+```sh
+$ system_profiler SPPowerDataType
+```
+
+あとは項目を絞り込めば見ることができる  
+
+```sh
+$ system_profiler SPPowerDataType | egrep 'Health Information:|Cycle Count:|Condition: Normal'
+      Health Information:
+          Cycle Count: 367
+          Condition: Normal
+```
+
+充放電回数が 1000 回で交換の目安みたいなのでまだまだ使えそう  
+
+
+- 参考
+  - [Macの電源アダプタの充電電力をコマンドラインから確認する方法 - Qiita](https://qiita.com/apollo_program/items/56a56932450a5d326cc1)
 
