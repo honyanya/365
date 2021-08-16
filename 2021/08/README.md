@@ -14,6 +14,7 @@
     - [2021/08/09 Mon](#20210809-mon)
     - [2021/08/10 Tue](#20210810-tue)
     - [2021/08/11 Wed](#20210811-wed)
+    - [2021/08/12 Thu](#20210812-thu)
 
 <!-- /TOC -->
 
@@ -461,4 +462,74 @@ $ system_profiler SPPowerDataType | egrep 'Health Information:|Cycle Count:|Cond
 
 - 参考
   - [Macの電源アダプタの充電電力をコマンドラインから確認する方法 - Qiita](https://qiita.com/apollo_program/items/56a56932450a5d326cc1)
+
+
+## 2021/08/12 Thu
+
+SQLite のバージョンが古くて Django を起動することができない  
+
+Django を起動しようとしたが SQLite のバージョンが古くて起動ができなかった  
+
+```sh
+$ python manage.py runserver
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+...
+django.core.exceptions.ImproperlyConfigured: SQLite 3.9.0 or later is required (found 3.8.10.2).
+```
+
+SQLite のバージョンを確認する  
+`3.8.10.2` と古い  
+
+```sh
+$ which sqlite3
+/usr/bin/sqlite3
+
+$ sqlite3 --version
+3.8.10.2 2015-05-20 18:17:19 2ef4f3a5b1d1d0c4338f8243d40a2452cc1f7fe4
+```
+
+Python でも実行してみる  
+同じく `3.8.10.2` が出力される  
+
+```sh
+$ python
+Python 3.9.6 (default, Aug  8 2021, 17:12:14)
+[Clang 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sqlite3
+>>> sqlite3.sqlite_version
+'3.8.10.2'
+```
+
+SQLite のバージョンを上げるため、 Homebrew で SQLite をインストールする  
+
+```sh
+$ brew install sqlite
+```
+
+バージョンが `3.36.0` となる  
+
+```sh
+$ which sqlite3
+/usr/local/opt/sqlite/bin/sqlite3
+
+$ sqlite3 --version
+3.36.0 2021-06-18 18:36:39 5c9a6c06871cb9fe42814af9c039eb6da5427a6ec28f187af7ebfb62eafa66e5
+```
+
+Python で実行してみると変わらず `3.8.10.2` が出力される  
+
+```sh
+$ python
+Python 3.9.6 (default, Aug  8 2021, 17:12:14)
+[Clang 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sqlite3
+>>> sqlite3.sqlite_version
+'3.8.10.2'
+```
+
+さて、どうしたものか  
 
