@@ -15,6 +15,7 @@
     - [2021/08/10 Tue](#20210810-tue)
     - [2021/08/11 Wed](#20210811-wed)
     - [2021/08/12 Thu](#20210812-thu)
+    - [2021/08/13 Fir](#20210813-fir)
 
 <!-- /TOC -->
 
@@ -532,4 +533,41 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 さて、どうしたものか  
+
+
+## 2021/08/13 Fir
+
+SQLite のバージョンが古くて Django を起動することができない 2  
+
+昨日の続き  
+
+`/usr/local/bin/` に対してシンボリックリンクを貼ってみたり  
+
+```sh
+$ cd /usr/local/bin/
+$ ln -s ../Cellar/sqlite/3.36.0/bin/sqlite3 sqlite3
+
+$ ls -l /usr/local/bin/sqlite3
+lrwxr-xr-x  1 user  admin  35  8 15 00:44 /usr/local/bin/sqlite3 -> ../Cellar/sqlite/3.36.0/bin/sqlite3
+```
+
+`LD_LIBRARY_PATH` 環境変数を設定してみると良いとあったりしたが変わらず  
+
+```sh
+$ export LD_LIBRARY_PATH="/usr/local/Cellar/sqlite/3.36.0/lib:$LD_LIBRARY_PATH"
+```
+
+そもそも `LD_LIBRARY_PATH` の環境変数が適用されない問題もある  
+
+```sh
+$ export LD_LIBRARY_PATH="/usr/local/Cellar/sqlite/3.36.0/lib:$LD_LIBRARY_PATH"
+$ printenv LD_LIBRARY_PATH
+
+$ export TEST_ENV="test_env"
+$ printenv TEST_ENV
+test_env
+```
+
+久々にハマって抜け出せないでいる  
+ちょっとしばらく置いて、改めて見た方が良いかも  
 
