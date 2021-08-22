@@ -17,6 +17,7 @@
     - [2021/08/12 Thu](#20210812-thu)
     - [2021/08/13 Fir](#20210813-fir)
     - [2021/08/14 Sat](#20210814-sat)
+    - [2021/08/15 Sun](#20210815-sun)
 
 <!-- /TOC -->
 
@@ -591,4 +592,24 @@ docker run -it centos:centos7.9.2009 /bin/bash
 ```
 
 これで指定したタグのコンテナが起動できるので、ここで叩いたコマンドを Dockerfile に残していくと良い  
+
+
+## 2021/08/15 Sun
+
+Docker を使う時にプチ意識していること 2  
+
+昨日の続き  
+Docker コンテナに入って状態を確認したい時があるが、 docker-compose を使用しているのに docker コマンドで入っていたりした  
+オプションの指定やコンテナの名前を調べる必要がある  
+
+```sh
+docker-compose ps
+docker exec -it pj_app_1 /bin/bash
+```
+
+`docker-compose exec [container_name]` で問題なく同じことができる  
+
+```sh
+docker-compose exec app /bin/bash
+```
 
