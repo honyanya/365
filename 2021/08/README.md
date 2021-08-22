@@ -600,14 +600,14 @@ Docker を使う時にプチ意識していること 2
 
 昨日の続き  
 Docker コンテナに入って状態を確認したい時があるが、 docker-compose を使用しているのに docker コマンドで入っていたりした  
-オプションやコンテナの指定も調べたりして行ってたりした  
+オプションの指定やコンテナの名前を調べる必要がある  
 
 ```sh
 docker-compose ps
 docker exec -it pj_app_1 /bin/bash
 ```
 
-docker-compose exec [container_name] で問題なく同じことができる  
+`docker-compose exec [container_name]` で問題なく同じことができる  
 
 ```sh
 docker-compose exec app /bin/bash
