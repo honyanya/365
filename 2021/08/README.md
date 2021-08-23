@@ -18,6 +18,7 @@
     - [2021/08/13 Fir](#20210813-fir)
     - [2021/08/14 Sat](#20210814-sat)
     - [2021/08/15 Sun](#20210815-sun)
+    - [2021/08/16 Mon](#20210816-mon)
 
 <!-- /TOC -->
 
@@ -612,4 +613,34 @@ docker exec -it pj_app_1 /bin/bash
 ```sh
 docker-compose exec app /bin/bash
 ```
+
+
+## 2021/08/16 Mon
+
+RDS で process を kill する場合  
+
+RDS 上で動かしているクエリが重くて kill しようとした  
+`SHOW PROCESSLIST;` でクエリを見て該当のクエリの ID を見た  
+process を kill しようにもできなかった  
+
+```sh
+mysql> KILL 101;
+ERROR 1095 (HY000): You are not owner of thread 101
+```
+
+owner が違うということだが...  
+確かに MySQL のコンソールは RDS の admin ユーザで入っており、クエリは別で作成したシステムのユーザで実行している  
+
+root では無いため、そのまま kill することはできない  
+RDS の場合は `CALL mysql.rds_kill(xxxx);` を使用する  
+
+```sh
+mysql> CALL mysql.rds_kill(101);
+Query OK, 0 rows affected (0.06 sec)
+```
+
+問題なく、クエリが kill された  
+
+- 参考
+  - [mysql.rds_kill - Amazon Relational Database Service](https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_kill.html)
 
