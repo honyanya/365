@@ -19,6 +19,7 @@
     - [2021/08/14 Sat](#20210814-sat)
     - [2021/08/15 Sun](#20210815-sun)
     - [2021/08/16 Mon](#20210816-mon)
+    - [2021/08/17 Tue](#20210817-tue)
 
 <!-- /TOC -->
 
@@ -643,4 +644,59 @@ Query OK, 0 rows affected (0.06 sec)
 
 - 参考
   - [mysql.rds_kill - Amazon Relational Database Service](https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_kill.html)
+
+
+## 2021/08/17 Tue
+
+SELECT で固定した値を返す  
+
+数年前に作ったアプリケーションを直す機会が生まれそうで  
+今思うとあまりよくない設計なのか、ある返却値を変更して固定値にしたいだけなのにアプリケーションコードの改修だと修正に時間がかかりそうだった  
+クエリの結果を固定にして、そのまま返却しようと思う  
+
+`SELECT` のあとに任意の値を書けば固定値で返してくれる  
+
+例えば `-1` を返却する
+
+```sh
+mysql> SELECT -1;
++----+
+| -1 |
++----+
+| -1 |
++----+
+1 row in set (0.00 sec)
+```
+
+列名も値も同じ `-1` が少しきになるのでちゃんと別名を付ける  
+
+```sh
+mysql> SELECT -1 AS dummy;
++-------+
+| dummy |
++-------+
+|    -1 |
++-------+
+1 row in set (0.01 sec)
+```
+
+もちろん任意の文字列も返すことができる  
+
+```sh
+mysql> SELECT 'hoge';
++------+
+| hoge |
++------+
+| hoge |
++------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'success' AS status;
++---------+
+| status  |
++---------+
+| success |
++---------+
+1 row in set (0.00 sec)
+```
 
