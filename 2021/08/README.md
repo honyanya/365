@@ -21,6 +21,7 @@
     - [2021/08/16 Mon](#20210816-mon)
     - [2021/08/17 Tue](#20210817-tue)
     - [2021/08/18 Wed](#20210818-wed)
+    - [2021/08/19 Thu](#20210819-thu)
 
 <!-- /TOC -->
 
@@ -710,7 +711,6 @@ mysql> SELECT 'success' AS status;
 サクッと共有したい時に便利  
 
 ブラウザに下記を入力すればメモ帳代わりに使える  
-
 ```
 data:text/html, <html contenteditable>
 ```
@@ -721,4 +721,59 @@ data:text/html, <html contenteditable>
 
 保存はできないので注意  
 このご時世なのでリモートでの会議が多いが、チャットやドキュメントの内容をサクッと共有したい時に便利  
+
+
+## 2021/08/19 Thu
+
+開発者ツールで JSON を表で出力させる  
+
+`console.table` で可能  
+
+こんな JSON がある  
+
+```js
+const data = [
+    {
+        "name": "alice",
+        "age": "20",
+        "mail": "alice@example.com"
+    },
+    {
+        "name": "bob",
+        "age": "20",
+        "mail": "bob@example.com"
+    },
+    {
+        "name": "carol",
+        "age": "20",
+        "mail": "carol@example.com"
+    },
+    {
+        "name": "dave",
+        "age": "20",
+        "mail": "dave@example.com"
+    },
+    {
+        "name": "eve",
+        "age": "20",
+        "mail": "eve@example.com"
+    }
+]
+```
+
+`console.log` だとこんな感じ  
+
+```js
+console.log(data)
+```
+
+![1_log](./images/19/1_log.png)
+
+`console.table` だとこんな感じ  
+
+```js
+console.table(data)
+```
+
+![2_table](./images/19/2_table.png)
 
