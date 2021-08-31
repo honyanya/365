@@ -22,6 +22,7 @@
     - [2021/08/17 Tue](#20210817-tue)
     - [2021/08/18 Wed](#20210818-wed)
     - [2021/08/19 Thu](#20210819-thu)
+    - [2021/08/20 Fri](#20210820-fri)
 
 <!-- /TOC -->
 
@@ -777,3 +778,23 @@ console.table(data)
 
 ![2_table](./images/19/2_table.png)
 
+
+## 2021/08/20 Fri
+
+iTerm2 で SSH すると locale 関連のファイルが無いと言われる  
+
+最近 SSH すると  
+
+```sh
+locale: Cannot set LC_ALL to default locale: No such file or directory
+```
+
+こんなメッセージが出るようになった  
+直近で心当たりがあるのは macOS のアップグレードぐらい  
+
+調べると iTerm2 の設定を変えることで解消できた  
+Preference -> Profiles -> Terminal -> Envirionment -> Set locale variables automatically のチェックを外す  
+これで locale 関連のメッセージは出なくなった  
+
+- 参考
+  - [macOS Mojave 10.14 にアップデート後、iTerm2 で SSH したら文字化けした - Qiita](https://qiita.com/junz/items/357fce241373170e6ed6)
