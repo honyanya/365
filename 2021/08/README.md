@@ -23,6 +23,7 @@
     - [2021/08/18 Wed](#20210818-wed)
     - [2021/08/19 Thu](#20210819-thu)
     - [2021/08/20 Fri](#20210820-fri)
+    - [2021/08/21 Sat](#20210821-sat)
 
 <!-- /TOC -->
 
@@ -798,3 +799,24 @@ Preference -> Profiles -> Terminal -> Envirionment -> Set locale variables autom
 
 - 参考
   - [macOS Mojave 10.14 にアップデート後、iTerm2 で SSH したら文字化けした - Qiita](https://qiita.com/junz/items/357fce241373170e6ed6)
+
+
+## 2021/08/21 Sat
+
+Ubuntu のコードネーム名  
+
+Vagrant のイメージで Ubuntu を使おうとするといつも迷ってしまう（ちゃんとページを見ると説明にはバージョンが書いてある......）  
+CentOS はバージョンで書いてあるけど、 Ubuntu はバージョンでは無く、コードネーム名でボックス名を指定する  
+https://app.vagrantup.com/centos  
+https://app.vagrantup.com/ubuntu  
+
+ボックス名とバージョンのまとめ  
+
+| Box Name                                                             | Code Name     | Version      | 
+| -------------------------------------------------------------------- | ------------- | ------------ | 
+| [ubuntu/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64)   | Trusty Tahr   | Ubuntu 14.04 | 
+| [ubuntu/xenial64](https://app.vagrantup.com/ubuntu/boxes/xenial64)   | Xenial Xerus  | Ubuntu 16.04 | 
+| [ubuntu/bionic64](https://app.vagrantup.com/ubuntu/boxes/bionic64)   | Bionic Beaver | Ubuntu 18.04 | 
+| [ubuntu/focal64](https://app.vagrantup.com/ubuntu/boxes/focal64)     | Focal Fossa   | Ubuntu 20.04 | 
+| [ubuntu/hirsute64](https://app.vagrantup.com/ubuntu/boxes/hirsute64) | Hirsute Hippo | Ubuntu 21.04 | 
+| [ubuntu/impish64](https://app.vagrantup.com/ubuntu/boxes/impish64)   | Impish Indri  | Ubuntu 21.10 | 
