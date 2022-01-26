@@ -6,19 +6,19 @@
 ## Description
 
 「書き続ける」が目的のリポジトリ  
-書けない時も後から書く努力をする  
-~2022/05/20 まで続ける予定  
+いずれは 365 日分の記事があるようにしたい  
 
 
 ## Contents
 
-TODO: ドメイン周り完了後、 URL を記述する  
-TODO: GitHub -> Gatsby へ以降  
+https://365.honyanya.com/  
 
 - [2021](./2021/README.md)
   - [2021/05](./2021/05/README.md)
   - [2021/06](./2021/06/README.md)
   - [2021/07](./2021/07/README.md)
+
+TODO: 過去記事は少しずつ Gaysby 側に入れる予定  
 
 
 ## Tips
