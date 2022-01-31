@@ -6,7 +6,7 @@ module.exports = {
       summary: `web developer.`,
     },
     description: `365. every day.`,
-    siteUrl: `https://github.com/honyayna/365/`,
+    siteUrl: `https://365.honyanya.com/`,
     social: {
       twitter: `honyanyas`,
     },
