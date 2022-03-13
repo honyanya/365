@@ -51,12 +51,18 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GOOGLE_ANALYTICS_TRACKING_ID"]
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `${process.env.GOOGLE_ANALYTICS_TRACKING_ID}`,
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
