@@ -3,7 +3,7 @@ title: "Rust で Hello World した"
 date: "2022-04-19T23:55:00.000"
 ---
 
-Rust が全くわらかなかったので[イベント](https://estie.connpass.com/event/243724/)に参加してみた  
+Rust が全くわからなかったので[イベント](https://estie.connpass.com/event/243724/)に参加してみた  
 気持ちがあるうちに触ってみる  
 こういうのはノリと勢いが大事  
 
