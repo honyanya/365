@@ -45,9 +45,11 @@ $ sbt
 > reStart
 [info] Application root not yet started
 [info] Starting application root in the background ...
-root Starting com.example.hogefuga.ziohttphelloworld.Ziohttphelloworld.main()
-[success] Total time: 0 s, completed May 4, 2022, 11:39:49 AM
-root Server started on port: 8090
+root Starting com.example.zhttpservice.ZhttpService.main()
+[success] Total time: 0 s, completed May 4, 2022, 11:36:04 AM
+root[ERROR] Error: Could not find or load main class com.example.zhttpservice.ZhttpService
+root[ERROR] Caused by: java.lang.ClassNotFoundException: com.example.zhttpservice.ZhttpService
+root ... finished with exit code 1
 ```
 
 実際にコード見てると、 `build.sbt` のメインクラスの指定が異なり、動かないコードになっていた。
