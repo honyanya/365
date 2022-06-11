@@ -13,6 +13,8 @@
 
 https://365.honyanya.com/  
 
+過去記事  
+
 - [2021](./2021/README.md)
   - [2021/05](./2021/05/README.md)
   - [2021/06](./2021/06/README.md)
@@ -20,6 +22,7 @@ https://365.honyanya.com/
   - [2021/08](./2021/08/README.md)
 
 TODO: 過去記事は少しずつ Gaysby 側に入れる予定  
+![#146](https://github.com/honyanya/365/issues/146)  
 
 
 ## Tips
