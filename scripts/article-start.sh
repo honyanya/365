@@ -19,7 +19,7 @@ curl -X POST \
 
 ## ローカルブランチを作成し、空コミットをプッシュする
 git fetch origin
-git checkout -b ${GITHUB_FEATURE_BRANCH} origin/${GITHUB_FEATURE_BRANCH}
+git switch -c ${GITHUB_FEATURE_BRANCH} origin/${GITHUB_FEATURE_BRANCH}
 git commit --allow-empty -m "${GITHUB_PR_TITLE}"
 git push origin ${GITHUB_FEATURE_BRANCH}
 
