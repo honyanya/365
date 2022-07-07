@@ -4,7 +4,7 @@
 git diff
 git status
 
-git checkout main
+git switch main
 
 ## ローカルリポジトリを最新の状態にする
 git fetch origin
