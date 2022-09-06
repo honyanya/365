@@ -75,7 +75,7 @@ Run TZ=JST-9 date "+%Y/%m/%d %H:%M:%S"
 ```
 
 
-## UTC <-> JST
+## JST <-> UTC
 
 完全に自分用  
 困ったらこの表をみる  
