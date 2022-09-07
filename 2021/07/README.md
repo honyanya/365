@@ -635,7 +635,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ## 2021/07/16 Fri
 
-Mac の data コマンドで 1 日前を指定する  
+Mac の date コマンドで 1 日前を指定する  
 
 Mac だと -d オプションで指定ができなかったのでメモ  
 普段 CentOS などでは下記のように実行している  
