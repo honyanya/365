@@ -1,5 +1,5 @@
 ---
-title: "Mac の data コマンドで 1 日前を指定する"
+title: "Mac の date コマンドで 1 日前を指定する"
 date: "2021-07-16T00:00:00.000Z"
 description: "Mac だと -d オプションで指定ができなかったのでメモ"
 tags:
