@@ -12,7 +12,7 @@ adb コマンドでいろいろ操作を行いたいため
 macOS の場合、 Homebrew で `android-platform-tools` をインストールすれば OK
 
 ```sh
-$ brew uninstall android-platform-tools
+$ brew install android-platform-tools --cask
 
 ==> Installing Cask android-platform-tools
 ==> Linking Binary 'sload_f2fs' to '/usr/local/bin/sload_f2fs'
