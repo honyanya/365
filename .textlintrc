@@ -9,8 +9,8 @@
         "space": "always"
       },
       "ja-space-around-code": {
-         "before": ture,
-         "after": ture
+        "before": true,
+        "after": true
       }
     },
     "preset-ja-technical-writing": false,
