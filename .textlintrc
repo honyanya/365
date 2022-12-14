@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "$comment": "TODO: ルール設定を行う error になるため",
   "rules": {
     "preset-ja-spacing": {
