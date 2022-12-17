@@ -5,7 +5,7 @@ description: "ndjson について教えてもらったのでメモ"
 ---
 
 ndjson について教えてもらったのでメモ  
-[ndjson](http://ndjson.org/) は newline delimited JSON の略
+[ndjson](http://ndjson.org/) は Newline Delimited JSON の略
 
 通常の JSON
 
