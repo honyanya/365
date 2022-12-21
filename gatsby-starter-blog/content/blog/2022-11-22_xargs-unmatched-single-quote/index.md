@@ -20,3 +20,47 @@ $ git diff origin/main --name-only | xargs -0 yarn textlint -f checkstyle
 ...
 ✨  Done in 3.01s.
 ```
+
+メッセージを見る限り、シングルクォートがファイル名にあるとダメっぽいがあったっけ？と思いつつ  
+手元の環境下で試してみると確かに同じ状況になった
+
+```sh
+## シングルクォートがあるファイルを用意した
+$ ls | grep md
+'.md
+READ'ME.md
+README.md
+
+## xargs に結果を渡す
+$ ls | grep md | xargs echo
+xargs: unterminated quote
+
+## -0 オプション指定で実施
+$ ls | grep md | xargs -0 echo
+'.md
+READ'ME.md
+README.md
+
+```
+
+ダブルクォーテーションでも必要
+
+```
+$ ls | grep md | xargs echo
+xargs: unterminated quote
+
+$ ls | grep md | xargs -0 echo
+".md
+READ"ME.md
+README.md
+
+```
+
+! や ? は不要だった
+
+```
+$ ls | grep md | xargs echo
+!.md
+READ!?ME.md
+README.md
+```
