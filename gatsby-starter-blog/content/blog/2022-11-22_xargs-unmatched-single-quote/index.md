@@ -64,3 +64,7 @@ $ ls | grep md | xargs echo
 READ!?ME.md
 README.md
 ```
+
+## 参考
+
+- [xargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option - Ask Ubuntu](https://askubuntu.com/questions/1106805/xargs-unmatched-single-quote-by-default-quotes-are-special-to-xargs-unless-you)
