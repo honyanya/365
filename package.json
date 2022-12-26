@@ -3,6 +3,7 @@
     "lint": "textlint './**/*.md'",
     "lint:fix": "textlint './**/*.md' --fix",
     "markdownlint": "markdownlint ./**/*.md",
+    "markdownlint:fix": "markdownlint ./**/*.md --fix",
     "prepare": "husky install"
   },
   "devDependencies": {
