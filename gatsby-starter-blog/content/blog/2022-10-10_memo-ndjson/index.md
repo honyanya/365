@@ -10,7 +10,7 @@ ndjson について教えてもらったのでメモ
 通常の JSON
 
 ```json
-{"id": "1", "name": "hoge", "other": "Widder"}
+[{"id": "1", "name": "hoge", "other": "Widder"},{"id": "2", "name": "fuga", "other": "Stier"},{"id": "3", "name": "piyo", "other": "Zwillinge"}]
 ```
 
 ndjson  
@@ -22,3 +22,7 @@ ndjson
 {"id": "2", "name": "fuga", "other": "Stier"}
 {"id": "3", "name": "piyo", "other": "Zwillinge"}
 ```
+
+例について  
+中身のデータは同じだけと書き方が異なることを示した  
+json は配列で扱い、 ndjson は行ごとに扱う
